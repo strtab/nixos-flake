@@ -8,7 +8,7 @@
     ../../home/shell/zsh.nix
 
     # System
-    ../../home/system/illogical-impulce
+    ../../home/system/illogical-impulce.nix
   ];
 
   home = {

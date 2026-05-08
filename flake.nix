@@ -23,16 +23,10 @@
       url = "github:hyprwm/Hyprland/dd220efe7b1e292415bd0ea7161f63df9c95bfd3"; # v0.53.3
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dotfiles = {
-      url = "path:./home/system/illogical-impulce/";
-      flake = false;
-    };
     illogical-flake = {
-      url = "gitlab:strtab/illogical-flake/daee2afb151ab7b49ff037302d855a80a01bc2e6";
-      inputs.dotfiles.follows = "dotfiles";
+      url = "gitlab:strtab/illogical-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plymouth-circle.url = "github:strtab/plymouth_theme_material_desing_circle/b15ef5bfe87d86c39b1c30aa28bbf08b2e8cde3c";
   };
 
   outputs =

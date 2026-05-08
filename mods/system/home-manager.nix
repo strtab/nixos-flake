@@ -6,7 +6,7 @@
     backupFileExtension = "backup";
     extraSpecialArgs = {
       inherit inputs;
-      pkgs-stable = import inputs.nixpkgs-stable {
+      pkgs = import inputs.nixpkgs {
         system = pkgs.stdenv.hostPlatform.system;
         config.allowUnfree = true;
       };
