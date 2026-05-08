@@ -5,8 +5,7 @@
     onlyoffice-desktopeditors # Office package
     qbittorrent # Torrent client
     thunderbird # Mail client
-    zathura # Pdf reader
-    obsidian # Markdown notes
+    zathura # Pdf viewer
     nomacs # Image viewer
     haruna # Video viewer
     kitty # Terminal
@@ -20,4 +19,25 @@
   ];
 
   xdg.menus.enable = true;
+
+  services.desktopManager.plasma6.enable = false;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    elisa
+    kate
+    okular
+    gwenview
+    ktexteditor
+    konsole
+    spectacle
+    discover
+    plasma-browser-integration
+    plasma-workspace-wallpapers
+    kinfocenter
+    plasma-systemmonitor
+    drkonqi
+    kglobalacceld
+    kdegraphics-thumbnailers
+    kde-inotify-survey
+    kscreenlocker
+  ];
 }

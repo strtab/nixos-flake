@@ -1,4 +1,15 @@
+{ pkgs, ... }:
 {
+  systemd.services.console-font-double = {
+    description = "Set doubled console font";
+    after = [ "systemd-vconsole-setup.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.kbd}/bin/setfont viscii10-8x16 -d";
+    };
+  };
   console = {
     font = "viscii10-8x16";
     colors = [

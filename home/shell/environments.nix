@@ -8,6 +8,7 @@
   ];
 
   home.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
     GOPATH = "$HOME/.go";
     EDITOR = "nvim";
   };

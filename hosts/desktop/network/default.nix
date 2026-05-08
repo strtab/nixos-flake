@@ -15,8 +15,6 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = false;
 
-  programs.gnupg.agent.enableSSHSupport = true;
-
   networking = {
     hostName = config.var.hostname;
 
@@ -46,6 +44,7 @@
     rsync
     wget
     nmap
+    w3m
     dig
   ];
 }

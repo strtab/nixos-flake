@@ -2,16 +2,23 @@
 {
   programs = {
     nano.enable = false;
-    # steam.enable = true;
+    steam.enable = true;
+  };
+
+  services.udev = {
+    packages = with pkgs; [
+      qmk
+      qmk-udev-rules # the only relevant
+      qmk_hid
+      via
+      vial
+    ];
   };
 
   environment.systemPackages = with pkgs; [
     kubectl
-    neovim
-    stow # config manager
+    stow
     tmux
-    bat
-    fzf
   ];
 
   zramSwap.enable = false;

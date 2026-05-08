@@ -1,10 +1,6 @@
 { inputs, ... }:
 {
   services.envfs.enable = true; # Dynamic populates contents of /bin
-  programs = {
-    nix-index-database.comma.enable = true; # Comma
-    nix-ld.enable = true; # Dynamic liblaries
-  };
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -13,7 +9,7 @@
 
   nix = {
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-    channel.enable = true;
+    channel.enable = false;
     extraOptions = ''
       warn-dirty = false
     '';
@@ -25,10 +21,20 @@
         "flakes"
       ];
       substituters = [
-        "https://mirror.sjtu.edu.cn/nix-channels/store"
-        "https://mirrors.ustc.edu.cn/nix-channels/store"
+        # high priority since it's almost always used
+        "https://cache.nixos.org?priority=10"
+
+        "https://hyprland.cachix.org"
+        "https://nix-community.cachix.org"
+        "https://numtide.cachix.org"
+        # "https://mirror.sjtu.edu.cn/nix-channels/store"
+        # "https://mirrors.ustc.edu.cn/nix-channels/store"
         # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-        # "https://cache.nixos.org"
+      ];
+      trusted-public-keys = [
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
       ];
     };
   };
