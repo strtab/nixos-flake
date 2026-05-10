@@ -36,17 +36,17 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1778264484,
-        "narHash": "sha256-iwNY9mSSfPBsDT3yQYgvWpEBBcnvR60kX756l0anihQ=",
+        "lastModified": 1778379241,
+        "narHash": "sha256-/WyKXh/rH2HGdP/6+0mYvFcqwye2gigqRSLzorqBKDI=",
         "owner": "strtab",
         "repo": "illogical-impulce-dots",
-        "rev": "923a9f93160a6534738f3b0eaa515a2cea1901f7",
+        "rev": "998230276b53bae90e7b017f149345785c809b12",
         "type": "gitlab"
       },
       "original": {
         "owner": "strtab",
         "repo": "illogical-impulce-dots",
-        "rev": "923a9f93160a6534738f3b0eaa515a2cea1901f7",
+        "rev": "998230276b53bae90e7b017f149345785c809b12",
         "type": "gitlab"
       }
     },
