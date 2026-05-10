@@ -23,9 +23,14 @@
       url = "github:hyprwm/Hyprland/dd220efe7b1e292415bd0ea7161f63df9c95bfd3"; # v0.53.3
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dotfiles = {
+      url = "gitlab:strtab/illogical-impulce-dots/998230276b53bae90e7b017f149345785c809b12";
+      flake = false;
+    };
     illogical-flake = {
       url = "gitlab:strtab/illogical-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.dotfiles.follows = "dotfiles";
     };
   };
 

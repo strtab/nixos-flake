@@ -51,7 +51,6 @@
 
     # Services
     ./../../mods/services/naiveproxy.nix
-    ./../../mods/services/v2raya.nix
   ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;
