@@ -24,11 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dotfiles = {
-      url = "gitlab:strtab/illogical-impulce-dots/998230276b53bae90e7b017f149345785c809b12";
+      url = "gitlab:strtab/illogical-impulce-dots/f0c574f1e5b0cfc3545230bb3ed27abcf144bbfe";
       flake = false;
     };
     illogical-flake = {
-      url = "gitlab:strtab/illogical-flake";
+      url = "gitlab:strtab/illogical-flake/9a95d185ad10ff8dbd9b0adbcae6357d002b5ef8";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dotfiles.follows = "dotfiles";
     };

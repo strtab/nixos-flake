@@ -36,17 +36,17 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1778379241,
-        "narHash": "sha256-/WyKXh/rH2HGdP/6+0mYvFcqwye2gigqRSLzorqBKDI=",
+        "lastModified": 1778767857,
+        "narHash": "sha256-VsNFWwlji6O6kHNfpNfXfwiG9eUz2qh6j4aLF/cpBv0=",
         "owner": "strtab",
         "repo": "illogical-impulce-dots",
-        "rev": "998230276b53bae90e7b017f149345785c809b12",
+        "rev": "a034e6bfc8dcdcdbc2f8b1d2f12921c70e51998c",
         "type": "gitlab"
       },
       "original": {
         "owner": "strtab",
         "repo": "illogical-impulce-dots",
-        "rev": "998230276b53bae90e7b017f149345785c809b12",
+        "rev": "a034e6bfc8dcdcdbc2f8b1d2f12921c70e51998c",
         "type": "gitlab"
       }
     },
@@ -465,16 +465,17 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1778273435,
-        "narHash": "sha256-44BLUtLt7cP1WYFNbeYieNGRCnxtuzzptT5K4tnfwdY=",
+        "lastModified": 1778756846,
+        "narHash": "sha256-L6CbifA6bP1NjHBkzo4ixD1bb17JBqW5TY2R7Q8Kir8=",
         "owner": "strtab",
         "repo": "illogical-flake",
-        "rev": "591b4cba9c30ea3bb22eafaacabe3f6a4c3a84e3",
+        "rev": "9a95d185ad10ff8dbd9b0adbcae6357d002b5ef8",
         "type": "gitlab"
       },
       "original": {
         "owner": "strtab",
         "repo": "illogical-flake",
+        "rev": "9a95d185ad10ff8dbd9b0adbcae6357d002b5ef8",
         "type": "gitlab"
       }
     },
