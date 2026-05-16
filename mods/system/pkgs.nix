@@ -11,6 +11,8 @@
     kitty # Terminal
     nwjs
 
+    xdg-terminal-exec
+
     kdePackages.dolphin-plugins
     kdePackages.dolphin # File manager
     kdePackages.ark # Work with file archivers
