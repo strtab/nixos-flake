@@ -40,11 +40,11 @@
     openssh
 
     inetutils
+    w3m-full
     curlFull
     rsync
     wget
     nmap
-    w3m
     dig
   ];
 }

@@ -13,7 +13,7 @@
   console = {
     font = "viscii10-8x16";
     colors = [
-      "1a1b19"
+      "0F0D0B"
       "af4b00"
       "919922"
       "ca9f1d"

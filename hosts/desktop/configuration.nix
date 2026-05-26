@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   programs = {
-    nano.enable = false;
     steam.enable = true;
   };
 

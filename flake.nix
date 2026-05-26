@@ -24,7 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dotfiles = {
-      url = "gitlab:strtab/illogical-impulce-dots/f0c574f1e5b0cfc3545230bb3ed27abcf144bbfe";
+      url = "gitlab:strtab/illogical-impulce-dots/dae3977031afdb391449b003e826c85f66d1b726";
       flake = false;
     };
     illogical-flake = {

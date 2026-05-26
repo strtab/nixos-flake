@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs = {
+    nano.enable = false;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -9,6 +10,12 @@
     appimage = {
       enable = true;
       binfmt = true;
+      package = pkgs.appimage-run.override {
+        extraPkgs = pkgs: [
+          pkgs.qt6.qtwayland
+          pkgs.libxkbcommon
+        ];
+      };
     };
 
     mtr.enable = true;
@@ -23,6 +30,8 @@
   documentation = {
     enable = true;
     man.enable = true;
+    man.generateCaches = true;
+
     doc.enable = false;
     dev.enable = false;
     info.enable = false;
@@ -41,16 +50,20 @@
     ffmpeg
     ntfs3g
     neovim
-    unrar
-    unzip
-    gzip
     tree
-    unar
     lsof
     git
     xxd
     fd
     jq
+
+    # Arcivers
+    p7zip
+    unrar
+    unzip
+    unar
+    gzip
+    zip
 
     # Development
     pkg-config
@@ -64,6 +77,27 @@
     lua
     gcc
     go
+  ];
+
+  services.desktopManager.plasma6.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    elisa
+    kate
+    okular
+    gwenview
+    ktexteditor
+    konsole
+    spectacle
+    discover
+    plasma-browser-integration
+    plasma-workspace-wallpapers
+    kinfocenter
+    plasma-systemmonitor
+    drkonqi
+    kglobalacceld
+    kdegraphics-thumbnailers
+    kde-inotify-survey
+    kscreenlocker
   ];
 
   programs = {

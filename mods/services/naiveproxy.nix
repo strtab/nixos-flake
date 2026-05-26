@@ -59,6 +59,11 @@ in
     });
   '';
 
+  environment.sessionVariables = {
+    SOCKS_SERVER = "localhost:10808";
+    SOCKS_VERSION = "5";
+  };
+
   system.activationScripts.naiveproxyConfig = {
     text = ''
       if [ ! -f /var/lib/naiveproxy/config.json ]; then

@@ -8,10 +8,8 @@
   };
 
   # DON'T TOUCH THIS
-  options = {
-    var = lib.mkOption {
-      type = lib.types.attrs;
-      default = { };
-    };
+  options.var = lib.mkOption {
+    type = lib.types.attrs;
+    default = { };
   };
 }
