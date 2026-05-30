@@ -20,15 +20,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/dd220efe7b1e292415bd0ea7161f63df9c95bfd3"; # v0.53.3
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:hyprwm/Hyprland/39d7e209c79d451efab1b21151d5938289da838d"; # v0.55.2
     };
     dotfiles = {
-      url = "gitlab:strtab/illogical-impulce-dots/dae3977031afdb391449b003e826c85f66d1b726";
+      url = "gitlab:strtab/illogical-impulce-dots/c15d3c590736f2d83e6802be36180d00e06e4445";
       flake = false;
     };
     illogical-flake = {
-      url = "gitlab:strtab/illogical-flake/9a95d185ad10ff8dbd9b0adbcae6357d002b5ef8";
+      url = "gitlab:strtab/illogical-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dotfiles.follows = "dotfiles";
     };

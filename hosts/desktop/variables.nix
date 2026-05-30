@@ -3,8 +3,6 @@
   config.var = {
     hostname = "moonveil";
     username = "user";
-
-    keyboardLayout = "en,ru";
   };
 
   # DON'T TOUCH THIS

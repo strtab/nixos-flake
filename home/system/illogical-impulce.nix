@@ -1,42 +1,63 @@
-{ inputs, ... }:
+{
+  inputs,
+  # pkgs,
+  # lib,
+  ...
+}:
 # let
-# iconsOverride = pkgs.stdenv.mkDerivation {
-#   pname = "BigSur-icon-theme";
-#   version = "1.0.0";
-#   src = pkgs.fetchFromGitHub {
-#     owner = "yeyushengfan258";
-#     repo = "BigSur-icon-theme";
-#     rev = "9eac0309f53d32d26aea1fff55f9a56ae97769f6";
-#     hash = "sha256-E+dMvCTGBzpw74wcYu5XVabc+G3KDnd9KqM/uZ1jhL4=";
-#   };
-#   nativeBuildInputs = [ pkgs.bash ];
-#   dontCheckForBrokenSymlinks = true;
+#   mactahoe-icon-theme = pkgs.stdenv.mkDerivation {
+#     pname = "MacTahoe-icon-theme";
+#     version = "2025-10-16";
 #
-#   postPatch = ''
-#     patchShebangs install.sh
-#     sed -i 's/gtk-update-icon-cache/true/' install.sh
-#   '';
+#     src = pkgs.fetchFromGitHub {
+#       owner = "vinceliuice";
+#       repo = "MacTahoe-icon-theme";
+#       tag = "${mactahoe-icon-theme.version}";
+#       hash = "sha256-2Tj4PmecvVA3T5GmKBkYdkjnspIue/u0LiYPaNMXk10=";
+#     };
 #
-#   installPhase = ''
-#     mkdir -p $out/share/icons
-#     ./install.sh -t all -d $out/share/icons/
-#   '';
-#   meta = {
-#     description = "A colorful Design icon theme for linux desktops ";
-#     homepage = "https://github.com/yeyushengfan258/BigSur-icon-theme";
+#     dontCheckForBrokenSymlinks = true;
+#
+#     nativeBuildInputs = [ pkgs.gtk3 ];
+#
+#     propagatedBuildInputs = [
+#       pkgs.plasma5Packages.breeze-icons
+#       pkgs.gnome-icon-theme
+#       pkgs.hicolor-icon-theme
+#     ];
+#
+#     installPhase = ''
+#       runHook preInstall
+#
+#       mkdir -p $out/share/icons
+#       patchShebangs install.sh
+#       ./install.sh -t all -d $out/share/icons/
+#
+#       runHook postInstall
+#     '';
+#
+#     dontDropIconThemeCache = true;
+#     dontBuild = true;
+#     dontConfigure = true;
+#
+#     meta = {
+#       description = "MacOS Tahoe icon theme for linux ";
+#       homepage = "https://github.com/vinceliuice/MacTahoe-icon-theme/tree/main";
+#       license = lib.licenses.gpl3Only;
+#       platforms = lib.platforms.linux;
+#     };
 #   };
-# };
 # in
 {
   imports = [ inputs.illogical-flake.homeManagerModules.default ];
-  # home.packages = [ iconsOverride ];
+  # home.packages = [ mactahoe-icon-theme ];
 
   programs.illogical-impulse = {
     enable = true;
     # icons = {
-    #   dark = "BigSur-icon-theme-1.0.0-dark";
-    #   light = "BigSur-icon-theme-1.0.0-light";
-    #   package = iconsOverride;
+    #   dark = "MacTahoe-icon-theme-2025-10-16-dark";
+    #   light = "MacTahoe-icon-theme-2025-10-16-light";
+    #   package = mactahoe-icon-theme;
     # };
   };
 }
