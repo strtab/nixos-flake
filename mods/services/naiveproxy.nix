@@ -62,6 +62,7 @@ in
   environment.sessionVariables = {
     SOCKS_SERVER = "localhost:10808";
     SOCKS_VERSION = "5";
+    all_proxy = "socks5://localhost:10808";
   };
 
   system.activationScripts.naiveproxyConfig = {

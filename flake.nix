@@ -5,29 +5,31 @@
   '';
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland/39d7e209c79d451efab1b21151d5938289da838d"; # v0.55.2
+    hypr-dynamic-cursors = {
+      url = "github:VirtCode/hypr-dynamic-cursors/da447486c84e0be81f2cdd208af1ef92469f0a88";
+      inputs.hyprland.follows = "hyprland";
+      inputs.nixpkgs.follows = "hyprland";
     };
     dotfiles = {
-      url = "gitlab:strtab/illogical-impulce-dots/c15d3c590736f2d83e6802be36180d00e06e4445";
+      url = "gitlab:strtab/illogical-impulce-dots/be69d207ac82eaf91a376c3182a7e6c942969fe8";
       flake = false;
     };
     illogical-flake = {
-      url = "gitlab:strtab/illogical-flake";
+      url = "gitlab:strtab/illogical-flake/e443c178fd7d32de765fac3e125fd8760c7d9d9f";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dotfiles.follows = "dotfiles";
     };
