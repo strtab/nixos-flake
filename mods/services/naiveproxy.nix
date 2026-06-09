@@ -42,7 +42,7 @@ in
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${naiveproxyPkg}/bin/naive /var/lib/naiveproxy/config.json";
+      ExecStart = "${naiveproxyPkg}/bin/naive /etc/naiveproxy/config.json";
       Restart = "on-failure";
       RestartSec = "3s";
       DynamicUser = true;
@@ -62,14 +62,15 @@ in
   environment.sessionVariables = {
     SOCKS_SERVER = "localhost:10808";
     SOCKS_VERSION = "5";
-    all_proxy = "socks5://localhost:10808";
+    # all_proxy = "socks5://localhost:10808";
+    # no_proxy = "localhost,127.0.0.1,localaddress,.localdomain.com";
   };
 
   system.activationScripts.naiveproxyConfig = {
     text = ''
-      if [ ! -f /var/lib/naiveproxy/config.json ]; then
-        mkdir -p /var/lib/naiveproxy
-        echo '{"listen":"socks://127.0.0.1:1080","proxy":"https://user:pass@server"}' > /var/lib/naiveproxy/config.json
+      if [ ! -f /etc/naiveproxy/config.json ]; then
+        mkdir -p /etc/naiveproxy
+        echo '{"listen":"socks://127.0.0.1:10808","proxy":"https://user:pass@server"}' > /etc/naiveproxy/config.json
       fi
     '';
   };
