@@ -4,6 +4,8 @@
     enable = true;
     autocd = true;
     enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
     history = {
       path = "${config.xdg.configHome}/zsh/histfile";
@@ -15,10 +17,10 @@
       PROMPT='%n@%m %1~ %# '
 
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} m:{A-Z}={a-z}'
-      function command_not_found_handler {
-        printf 'zsh: command not found: %s\n' "$1"
-        return 127
-      }
+      # function command_not_found_handler {
+      #   printf 'zsh: command not found: %s\n' "$1"
+      #   return 127
+      # }
     '';
   };
 

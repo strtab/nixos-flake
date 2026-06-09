@@ -1,5 +1,6 @@
 {
   home.shellAliases = {
+    ":q" = "exit";
     "vi" = "nvim";
     "svi" = "sudo -e";
     "ll" = "ls --group-directories-first -lha";
@@ -13,6 +14,5 @@
     "ku" = "kubectl";
     "rr" = "echo \"$?\"";
     "sduo" = "sudo";
-    "s" = "sudo";
   };
 }
