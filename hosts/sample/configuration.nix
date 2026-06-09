@@ -1,30 +1,10 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
-  programs = {
-    steam.enable = true;
-  };
-
-  services.udev = {
-    packages = with pkgs; [
-      qmk
-      qmk-udev-rules # the only relevant
-      qmk_hid
-      via
-      vial
-    ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    kubectl
-    stow
-    tmux
-  ];
-
   zramSwap.enable = false;
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = 20 * 1024;
+      size = 2 * 1024;
     }
   ];
 
@@ -41,16 +21,13 @@
     # System
     ./../../mods/system/nix.nix
     ./../../mods/system/users.nix
-    ./../../mods/system/window-manager.nix
+    ./../../mods/system/hyprland.nix
     ./../../mods/system/home-manager.nix
+    ./../../mods/system/window-manager.nix
     ./../../mods/system/fonts.nix
     ./../../mods/system/pkgs.nix
     ./../../mods/system/utils.nix
     ./../../mods/system/tty.nix
-
-    # Services
-    ./../../mods/services/naiveproxy.nix
-    ./../../mods/services/v2raya.nix
   ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;

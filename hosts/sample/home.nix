@@ -7,9 +7,6 @@
     ../../home/shell
     ../../home/shell/zsh.nix
 
-    # Programs
-    ../../home/programs/direnv.nix
-
     # System
     ../../home/system/hyprland.nix
   ];

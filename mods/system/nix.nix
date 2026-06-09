@@ -7,6 +7,14 @@
     allowBroken = false;
   };
 
+  programs = {
+    nix-index-database.comma.enable = true;
+    nix-index = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+  };
+
   nix = {
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     channel.enable = false;

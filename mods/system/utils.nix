@@ -7,16 +7,17 @@
       enableSSHSupport = true;
     };
 
-    appimage = {
-      enable = true;
-      binfmt = true;
-      package = pkgs.appimage-run.override {
-        extraPkgs = pkgs: [
-          pkgs.qt6.qtwayland
-          pkgs.libxkbcommon
-        ];
-      };
-    };
+    dconf.enable = true;
+    # appimage = {
+    #   enable = true;
+    #   binfmt = true;
+    #   package = pkgs.appimage-run.override {
+    #     extraPkgs = pkgs: [
+    #       pkgs.qt6.qtwayland
+    #       pkgs.libxkbcommon
+    #     ];
+    #   };
+    # };
 
     mtr.enable = true;
   };
@@ -79,7 +80,29 @@
     go
   ];
 
-  services.desktopManager.plasma6.enable = true;
+  xdg = {
+    portal.enable = true;
+    portal.extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+      kdePackages.xdg-desktop-portal-kde
+    ];
+  };
+
+  environment.sessionVariables = {
+    XDG_DATA_DIRS = [
+      "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+    ];
+  };
+
+  services = {
+    geoclue2.enable = true;
+    upower.enable = true;
+    power-profiles-daemon.enable = true;
+    desktopManager.plasma6.enable = false;
+  };
+
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     elisa
     kate
@@ -101,7 +124,6 @@
   ];
 
   programs = {
-    nix-index-database.comma.enable = true; # Comma
     nix-ld = {
       # Dynamic liblaries
       enable = true;
