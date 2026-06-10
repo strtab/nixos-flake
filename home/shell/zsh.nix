@@ -4,7 +4,6 @@
     enable = true;
     autocd = true;
     enableCompletion = true;
-    autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
     history = {
