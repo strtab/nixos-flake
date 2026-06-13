@@ -12,7 +12,7 @@
 
   imports = [
     # Init
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
     ./hardware # Hardware imports there
     ./variables.nix # Common variables
     ./network # Network configuration
