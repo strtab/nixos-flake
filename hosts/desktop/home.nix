@@ -7,11 +7,9 @@
     ../../home/shell
     ../../home/shell/zsh.nix
 
-    # Programs
-    ../../home/programs/direnv.nix
-
-    # System
-    ../../home/system/hyprland.nix
+    ../../home/modules/direnv.nix
+    ../../home/modules/neomutt.nix
+    ../../home/modules/hyprland.nix
   ];
 
   home = {

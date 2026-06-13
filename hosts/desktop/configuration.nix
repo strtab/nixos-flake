@@ -6,11 +6,11 @@
 
   services.udev = {
     packages = with pkgs; [
-      qmk
-      qmk-udev-rules # the only relevant
+      qmk-udev-rules
       qmk_hid
-      via
       vial
+      via
+      qmk
     ];
   };
 
@@ -18,6 +18,12 @@
     kubectl
     stow
     tmux
+
+    obsidian
+    anki
+
+    neomutt
+    thunderbird
   ];
 
   zramSwap.enable = false;

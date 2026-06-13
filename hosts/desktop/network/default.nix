@@ -39,6 +39,9 @@
     openvpn
     openssh
 
+    samba
+    freerdp
+
     inetutils
     w3m-full
     curlFull

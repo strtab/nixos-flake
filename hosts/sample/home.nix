@@ -7,8 +7,7 @@
     ../../home/shell
     ../../home/shell/zsh.nix
 
-    # System
-    ../../home/system/hyprland.nix
+    ../../home/modules/hyprland.nix
   ];
 
   home = {
