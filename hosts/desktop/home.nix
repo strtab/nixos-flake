@@ -3,13 +3,8 @@
   imports = [
     ./variables.nix
 
-    # Shell
-    ../../home/shell
+    ../../home
     ../../home/shell/zsh.nix
-
-    ../../home/modules/direnv.nix
-    ../../home/modules/neomutt.nix
-    ../../home/modules/hyprland.nix
   ];
 
   home = {

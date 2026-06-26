@@ -1,30 +1,19 @@
-{ config, pkgs, ... }:
+{ config, inputs, ... }:
 {
-  programs = {
-    steam.enable = true;
-  };
-
-  services.udev = {
-    packages = with pkgs; [
-      qmk-udev-rules
-      qmk_hid
-      vial
-      via
-      qmk
-    ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    kubectl
-    stow
-    tmux
-
-    obsidian
-    anki
-
-    neomutt
-    thunderbird
+  imports = [ 
+    (inputs.import-tree ../../modules)
+    (inputs.import-tree ./hardware)
+    ./variables.nix
   ];
+  
+  commonApps.enable = true;
+  games.enable = true;
+  
+  plasma.enable = true;
+
+  vial.enable = true;
+
+  _services.naiveproxy.enable = true;
 
   zramSwap.enable = false;
   swapDevices = [
@@ -35,29 +24,6 @@
   ];
 
   time.timeZone = "Europe/Moscow";
-
-  imports = [
-    # Init
-    ./hardware-configuration.nix
-    ./hardware # Hardware imports there
-    ./variables.nix # Common variables
-    ./network # Network configuration
-    ./boot # Bootloader
-
-    # System
-    ./../../mods/system/nix.nix
-    ./../../mods/system/users.nix
-    ./../../mods/system/window-manager.nix
-    ./../../mods/system/home-manager.nix
-    ./../../mods/system/fonts.nix
-    ./../../mods/system/pkgs.nix
-    ./../../mods/system/utils.nix
-    ./../../mods/system/tty.nix
-
-    # Services
-    ./../../mods/services/naiveproxy.nix
-    ./../../mods/services/v2raya.nix
-  ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;
   system.stateVersion = "25.11";
