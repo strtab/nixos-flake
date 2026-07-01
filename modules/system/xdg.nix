@@ -11,7 +11,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    xdg-launch
     xdg-utils
   ];
 
