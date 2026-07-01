@@ -1,4 +1,4 @@
-{ config , lib , pkgs , osConfig , ... }:
+{ config , lib , pkgs , ... }:
 {
   config = lib.mkMerge [
     (lib.mkIf config.var.git.enable {
@@ -20,12 +20,6 @@
             name = config.var.fullname;
           };
         };
-      };
-    })
-    (lib.mkIf config.var.git.useCredentialsFromSecrets {
-      home.file.".git-credentials" = {
-        force = true;
-        source = config.lib.file.mkOutOfStoreSymlink osConfig.age.secrets.git-credentials.path;
       };
     })
   ];

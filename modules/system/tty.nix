@@ -1,14 +1,14 @@
 { pkgs, lib, config, ... }:
 {
   options.tty = {
-    doubledFonts = lib.mkEnableOption "Set doubled tty font";
+    doubledFont = lib.mkEnableOption "Set doubled font for tty";
     font = lib.mkOption {
       type = lib.types.str;
       default = "viscii10-8x16";
     };
   };
   config = {
-    systemd.services.console-font-double = {
+    systemd.services.console-font-double = lib.mkIf config.tty.doubledFont {
       description = "Set doubled console font";
       after = [ "systemd-vconsole-setup.service" ];
       wantedBy = [ "multi-user.target" ];

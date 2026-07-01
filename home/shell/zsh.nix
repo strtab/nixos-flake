@@ -14,6 +14,17 @@
     initContent = ''
       PROMPT='%n@%m %1~ %# '
 
+      # Edit command line
+      autoload -z edit-command-line
+      zle -N edit-command-line
+      bindkey "^E" edit-command-line
+
+      bindkey -e
+
+      # Use cache
+      zstyle ':completion:*' use-cache on
+      zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} m:{A-Z}={a-z}'
     '';
   };

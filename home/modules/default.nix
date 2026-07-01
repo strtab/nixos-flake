@@ -6,5 +6,6 @@
     ./kitty.nix
     ./obsidian.nix
     ./xdg.nix
+    ./email
   ];
 }

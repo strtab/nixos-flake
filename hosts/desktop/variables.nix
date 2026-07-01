@@ -11,7 +11,7 @@
         enable = true;
         username = "strtab";
         email = "maleshkodaniil@gmail.com";
-        useCredentialsFromSecrets = true;
+        useSecrets = true;
       };
     };
   };

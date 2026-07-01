@@ -4,7 +4,7 @@
     "$HOME/.go/bin"
     ".venv/bin"
     "$HOME/.local/bin"
-    "$HOME/.npm-global/bin"
+    "$HOME/.local/state/npm/bin"
   ];
 
   home.sessionVariables = {

@@ -1,6 +1,7 @@
 { pkgs
 , lib
 , config
+, inputs
 , ...
 }:
 let
@@ -37,11 +38,7 @@ in
     setVariables = lib.mkEnableOption "Use environment variables" // {
       default = true;
     };
-    configSecret = lib.mkOption {
-      type = lib.types.nullOr lib.types.path;
-      default = null;
-      description = "Path to agenix secret config file";
-    };
+    useSecrets = lib.mkEnableOption "Use secret file for naive proxy";
     configDefault = lib.mkOption {
       type = lib.types.attrs;
       default = {
@@ -84,17 +81,31 @@ in
     environment.sessionVariables = lib.mkIf config._services.naiveproxy.setVariables {
       SOCKS_SERVER = "localhost:10808";
       SOCKS_VERSION = "5";
-      no_proxy = "localhost,127.0.0.1,localaddress,.localdomain.com,stationx.mo,drweb.com,lo,anilib.me,kodikplayer.com,homelab,anilib.me,.ru,video1.cdnlibs.org,translate.yandex.com,vk.com,userapi.com,aeza.ru,.lan";
     };
 
-    system.activationScripts.naiveproxyConfig = lib.mkIf (config._services.naiveproxy.configSecret == null) (
-      let
-        configFile = pkgs.writeText "config.json" (builtins.toJSON config._services.naiveproxy.configDefault);
-      in
-      ''
-        mkdir -p /etc/naiveproxy
-        cp ${configFile} /etc/naiveproxy/config.json
-      ''
-    );
+    age.secrets.naiveproxy = lib.mkIf config._services.naiveproxy.useSecrets {
+      file = "${inputs.self}/secrets/naiveproxy.age";
+      path = "/etc/naiveproxy/config.json";
+      # owner = "naiveproxy";
+      # group = "naiveproxy";
+      symlink = false;
+      mode = "444";
+    };
+
+    system.activationScripts.naiveproxyConfig =
+      lib.mkIf (config._services.naiveproxy.useSecrets == false)
+        (
+          let
+            configFile = pkgs.writeText "config.json" (
+              builtins.toJSON config._services.naiveproxy.configDefault
+            );
+          in
+          ''
+            if [[ ! -f /etc/naiveproxy/config.json ]]; then 
+              mkdir -p /etc/naiveproxy
+              cp ${configFile} /etc/naiveproxy/config.json
+            fi
+          ''
+        );
   };
 }

@@ -1,7 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   xdg = {
-    menus.enable = true;
     portal.enable = true;
     portal.extraPortals = with pkgs; [
       xdg-desktop-portal-gnome

@@ -1,10 +1,10 @@
-{ config, ... }:
+{ config, inputs, ... }:
 {
   imports = [
     ./variables.nix
 
-    ../../home
-    ../../home/shell/zsh.nix
+    "${inputs.self}/home"
+    "${inputs.self}/home/shell/zsh.nix"
   ];
 
   home = {

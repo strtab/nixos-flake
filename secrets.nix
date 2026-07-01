@@ -7,10 +7,10 @@ let
 in
 {
   # mail
-  "secrets/mail/personal.age".publicKeys = systems ++ users;
-  "secrets/mail/personal-password.age".publicKeys = systems ++ users;
-  "secrets/mail/work.age".publicKeys = systems ++ users;
-  "secrets/mail/work-password.age".publicKeys = systems ++ users;
+  "secrets/mail/isyncrc.age".publicKeys = systems ++ users;
+  "secrets/mail/aerc-accounts.age".publicKeys = systems ++ users;
+  "secrets/mail/notmuch.age".publicKeys = systems ++ users;
 
+  "secrets/naiveproxy.age".publicKeys = systems ++ users;
   "secrets/git-credentials.age".publicKeys = systems ++ users;
 }

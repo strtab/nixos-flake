@@ -8,6 +8,7 @@
       size = 16;
     };
     shellIntegration.enableZshIntegration = true;
+    shellIntegration.mode = "no-cursor";
     enableGitIntegration = true;
     settings = {
       enable_audio_bell = false;

@@ -23,7 +23,6 @@
       google-chrome # Browser
 
       onlyoffice-desktopeditors # Office package
-      thunderbird # Mail client
 
       kubectl
       tmux

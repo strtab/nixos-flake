@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config,  ... }:
 {
   xdg = {
     enable = true;
@@ -21,7 +21,7 @@
     };
   };
 
-  home.sessionVariables = lib.mkOverride 10 {
+  home.sessionVariables = {
     # cleaning up ~
     ANDROID_USER_HOME = "${config.xdg.dataHome}/android";
     BUN_INSTALL_GLOBAL_DIR = "${config.xdg.dataHome}/bun";
