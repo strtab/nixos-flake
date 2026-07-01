@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -26,6 +26,10 @@
       zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} m:{A-Z}={a-z}'
+
+      ${lib.optionalString config.programs.bat.enable ''
+        alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+      ''};
     '';
   };
 
