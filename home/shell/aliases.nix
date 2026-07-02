@@ -14,5 +14,6 @@
     "ku" = "kubectl";
     "rr" = "echo \"$?\"";
     "sduo" = "sudo";
+    "clean" = "nh clean all --keep 3 --optimise; sync";
   };
 }
