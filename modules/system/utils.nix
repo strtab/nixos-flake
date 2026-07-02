@@ -1,10 +1,7 @@
 { pkgs, ... }:
 {
-  hardware.ksm.enable = false;
-
   programs = {
     nano.enable = false;
-
     dconf.enable = true;
 
     # appimage = {
@@ -22,7 +19,7 @@
   documentation = {
     enable = true;
     man.enable = true;
-    man.cache.enable = true;
+    man.cache.enable = false; # enable if you want to use apropos(1)
 
     doc.enable = false;
     dev.enable = false;
