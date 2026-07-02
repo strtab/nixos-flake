@@ -43,8 +43,7 @@
     text/calendar=calendar
     message/delivery-status=colorize
     message/rfc822=colorize
-    text/html=! html2text -nobs
-    application/x-sh=bat -fP -l sh
+    text/html=! html2text -nobs | less
     image/*=! exiftool -G1 ~/Pictures/Common/cpp.png | grep -viE 'system|exiftool'
 
     .headers=colorize
