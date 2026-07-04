@@ -15,7 +15,7 @@
     };
   };
   home.file."${config.xdg.configHome}/goimapnotify/goimapnotify.yaml".enable = lib.mkForce false;
-  home.activation.linkMbsyncConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.linkGoimapnotifyConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p "${config.xdg.configHome}/goimapnotify"
     ln -sf "${config.age.secrets.goimapnotify.path}" "${config.xdg.configHome}/goimapnotify/goimapnotify.yaml"
     chmod 600 "${config.xdg.configHome}/isyncrc" 2>/dev/null || true

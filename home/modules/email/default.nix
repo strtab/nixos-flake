@@ -7,5 +7,6 @@
     ./aerc.nix
     ./mbsync.nix
     ./notmuch.nix
+    ./goimapnotify.nix
   ];
 }
