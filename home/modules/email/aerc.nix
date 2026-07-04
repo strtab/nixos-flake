@@ -1,3 +1,4 @@
+# https://aerc-mail.org/
 { pkgs, config, ... }:
 {
   programs.aerc = {

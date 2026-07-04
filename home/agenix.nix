@@ -13,6 +13,7 @@
     identityPaths = [ "${config.home.homeDirectory}/.ssh/agenix" ];
     secrets = {
       # email
+      goimapnotify.file = "${inputs.self}/secrets/mail/goimapnotify.age";
       aerc-accounts.file = "${inputs.self}/secrets/mail/aerc-accounts.age";
       isyncrc.file = "${inputs.self}/secrets/mail/isyncrc.age";
       notmuch.file = "${inputs.self}/secrets/mail/notmuch.age";

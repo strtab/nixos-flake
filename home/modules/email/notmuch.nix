@@ -1,3 +1,4 @@
+# https://notmuchmail.org/
 { lib
 , config
 , pkgs
@@ -36,9 +37,10 @@
         notmuch tag +flagged "folder:/Starred/" and not tag:flagged
 
         # Send notifications for new emails
-        notmuch search --format=json tag:new | jq -r '.[] | [.authors, .subject] | @csv' | while IFS=, read -r from subject; do
+        notmuch search --format=json tag:unread and not tag:notified | jq -r '.[] | [.authors, .subject] | @csv' | while IFS=, read -r from subject; do
           notify-send -a "Notmuch" -c mail "New mail from $from" "$subject"
         done
+        notmuch tag +notified tag:unread and not tag:notified
 
         # Remove the new tag from all new emails
         notmuch tag -new tag:new
