@@ -4,16 +4,16 @@
     nano.enable = false;
     dconf.enable = true;
 
-    # appimage = {
-    #   enable = true;
-    #   binfmt = true;
-    #   package = pkgs.appimage-run.override {
-    #     extraPkgs = pkgs: [
-    #       pkgs.qt6.qtwayland
-    #       pkgs.libxkbcommon
-    #     ];
-    #   };
-    # };
+    appimage = {
+      enable = true;
+      binfmt = true;
+      package = pkgs.appimage-run.override {
+        extraPkgs = pkgs: [
+          pkgs.qt6.qtwayland
+          pkgs.libxkbcommon
+        ];
+      };
+    };
   };
 
   documentation = {
@@ -55,12 +55,14 @@
     zip
 
     # development
+    wrapGAppsHook4
     pkg-config
     luarocks
     python3
     gnumake
     nodejs
     rustc
+    cargo-tauri
     cargo
     cmake
     lua

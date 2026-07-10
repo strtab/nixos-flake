@@ -37,11 +37,11 @@ let
   });
 in
 {
-  options._services.v2raya = {
+  options.modules.services.v2raya = {
     enable = lib.mkEnableOption "v2raya";
   };
 
-  config = lib.mkIf config._services.v2raya.enable {
+  config = lib.mkIf config.modules.services.v2raya.enable {
     services.v2raya = {
       enable = true;
       package = v2rayaOverride;

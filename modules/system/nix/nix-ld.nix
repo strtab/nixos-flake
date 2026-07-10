@@ -1,11 +1,10 @@
 { pkgs , lib , config , ... }:
 {
-  options = {
-    nix.ld.enable = lib.mkEnableOption "nix dynamic liblaries" // {
-      default = true;
-    };
+  options.modules.nix.ld.enable = lib.mkEnableOption "nix dynamic liblaries" // {
+    default = true;
   };
-  config = lib.mkIf config.nix.ld.enable {
+
+  config = lib.mkIf config.modules.nix.ld.enable {
     programs = {
       nix-ld = {
         # Dynamic liblaries
@@ -139,6 +138,10 @@
           # Appimages need fuse, e.g. https://musescore.org/fr/download/musescore-x86_64.AppImage
           fuse
           e2fsprogs
+
+          # For tauri
+          webkitgtk_4_1
+          waylandpp
         ];
       };
     };

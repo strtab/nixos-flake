@@ -33,7 +33,7 @@ let
   };
 in
 {
-  options._services.naiveproxy = {
+  options.modules.services.naiveproxy = {
     enable = lib.mkEnableOption "naive proxy";
     setVariables = lib.mkEnableOption "Use environment variables" // {
       default = true;
@@ -53,7 +53,7 @@ in
     };
   };
 
-  config = lib.mkIf config._services.naiveproxy.enable {
+  config = lib.mkIf config.modules.services.naiveproxy.enable {
     environment.systemPackages = [ naiveproxyPkg ];
 
     systemd.services.naiveproxy = {
@@ -78,12 +78,12 @@ in
       });
     '';
 
-    environment.sessionVariables = lib.mkIf config._services.naiveproxy.setVariables {
+    environment.sessionVariables = lib.mkIf config.modules.services.naiveproxy.setVariables {
       SOCKS_SERVER = "localhost:10808";
       SOCKS_VERSION = "5";
     };
 
-    age.secrets.naiveproxy = lib.mkIf config._services.naiveproxy.useSecrets {
+    age.secrets.naiveproxy = lib.mkIf config.modules.services.naiveproxy.useSecrets {
       file = "${inputs.self}/secrets/naiveproxy.age";
       path = "/etc/naiveproxy/config.json";
       # owner = "naiveproxy";
@@ -93,11 +93,11 @@ in
     };
 
     system.activationScripts.naiveproxyConfig =
-      lib.mkIf (config._services.naiveproxy.useSecrets == false)
+      lib.mkIf (config.modules.services.naiveproxy.useSecrets == false)
         (
           let
             configFile = pkgs.writeText "config.json" (
-              builtins.toJSON config._services.naiveproxy.configDefault
+              builtins.toJSON config.modules.services.naiveproxy.configDefault
             );
           in
           ''

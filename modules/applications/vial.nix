@@ -1,9 +1,9 @@
 { pkgs, lib, config, ... }:
 {
-  options.vial = {
+  options.modules.vial = {
     enable = lib.mkEnableOption "Enable vial";
   };
-  config = lib.mkIf config.vial.enable {
+  config = lib.mkIf config.modules.vial.enable {
     environment.systemPackages = with pkgs; [ vial ];
     services.udev = {
       packages = with pkgs; [

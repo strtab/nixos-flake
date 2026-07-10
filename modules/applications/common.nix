@@ -5,11 +5,11 @@
 }:
 {
   options = {
-    commonApps = {
-      enable = lib.mkEnableOption "Enable media applications";
+    modules.common = {
+      enable = lib.mkEnableOption "Enable common gui applications";
     };
   };
-  config = lib.mkIf config.commonApps.enable {
+  config = lib.mkIf config.modules.common.enable {
     environment.systemPackages = with pkgs; [
       kdePackages.dolphin-plugins # File manager plugins
       kdePackages.dolphin # File manager
@@ -24,9 +24,7 @@
 
       onlyoffice-desktopeditors # Office package
 
-      kubectl
       tmux
-      neomutt
       anki
     ];
   };

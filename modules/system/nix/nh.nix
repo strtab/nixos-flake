@@ -1,5 +1,5 @@
 { lib , config , ... }: {
-  options.nix.nh = {
+  options.modules.nix.nh = {
     enable = lib.mkEnableOption "Enable nh" // {
       default = true;
     };
@@ -19,10 +19,10 @@
 
   config = {
     programs.nh = {
-      enable = config.nix.nh.enable;
-      clean.enable = config.nix.nh.clean.enable;
-      clean.extraArgs = config.nix.nh.clean.extraArgs;
-      flake = config.nix.nh.flakePath;
+      enable = config.modules.nix.nh.enable;
+      clean.enable = config.modules.nix.nh.clean.enable;
+      clean.extraArgs = config.modules.nix.nh.clean.extraArgs;
+      flake = config.modules.nix.nh.flakePath;
     };
   };
 }

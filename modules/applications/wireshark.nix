@@ -1,9 +1,9 @@
 { config , pkgs , lib , ... }:
 {
-  options.wireshark = {
+  options.modules.wireshark = {
     enable = lib.mkEnableOption "Enable wireshark";
   };
-  config = lib.mkIf config.wireshark.enable {
+  config = lib.mkIf config.modules.wireshark.enable {
     environment.systemPackages = with pkgs; [ wireshark ];
     users.users."${config.var.username}".extraGroups = [ "wireshark" ];
     programs = {
