@@ -19,7 +19,7 @@
     dotfiles.url = "gitlab:strtab/illogical-impulce-dots/5809a38c5034a7a116cee73be2d6f615416b5aa4";
     dotfiles.flake = false;
     illogical-flake = {
-      url = "gitlab:strtab/illogical-flake/7b1589cda1176c3f2129c7e725871a6fb6503893";
+      url = "gitlab:strtab/illogical-flake/01e9849690b74be74b8947991df5a91a9b3c7265";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dotfiles.follows = "dotfiles";
     };

@@ -955,17 +955,17 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1781021419,
-        "narHash": "sha256-ff8KIytg6NVe199qwN80N34WlA1NwJcVcd0DVj8kurw=",
+        "lastModified": 1783187050,
+        "narHash": "sha256-RZmYLw4q3EDKJmTgDtskvmkKdhp3pjGFTUQaTsQgKJo=",
         "owner": "strtab",
         "repo": "illogical-flake",
-        "rev": "7b1589cda1176c3f2129c7e725871a6fb6503893",
+        "rev": "01e9849690b74be74b8947991df5a91a9b3c7265",
         "type": "gitlab"
       },
       "original": {
         "owner": "strtab",
         "repo": "illogical-flake",
-        "rev": "7b1589cda1176c3f2129c7e725871a6fb6503893",
+        "rev": "01e9849690b74be74b8947991df5a91a9b3c7265",
         "type": "gitlab"
       }
     },
