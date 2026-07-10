@@ -8,8 +8,8 @@
     dotDir = "${config.xdg.configHome}/zsh";
     history = {
       path = "${config.xdg.configHome}/zsh/histfile";
-      save = 10000;
-      size = 10000;
+      save = 500000;
+      size = 500000;
     };
     initContent = ''
       PROMPT='%n@%m %1~ %# '
