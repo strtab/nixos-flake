@@ -3,8 +3,10 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "family='Google Sans Code' variable_name=GoogleSansCode wght=440 MONO=1";
-      package = pkgs.googlesans-code;
+      # name = "family='Google Sans Code' variable_name=GoogleSansCode wght=440 MONO=1";
+      # package = pkgs.googlesans-code;
+      name = "family='Geist Mono Nerd Mono'";
+      package = pkgs.nerd-fonts.geist-mono;
       size = 16;
     };
     shellIntegration.enableZshIntegration = true;
@@ -77,7 +79,7 @@
     # vim:ft=kitty
 
     foreground                      #545464
-    background                      #f2ecbc
+    background                      #fff9ee
     selection_foreground            #43436c
     selection_background            #c9cbd1
 
