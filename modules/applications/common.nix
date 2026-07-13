@@ -1,8 +1,4 @@
-{ pkgs
-, lib
-, config
-, ...
-}:
+{ inputs, pkgs, lib, config, ... }:
 {
   options = {
     modules.common = {
@@ -20,7 +16,8 @@
       nomacs # Image viewer
       haruna # Video viewer
 
-      google-chrome # Browser
+      # google-chrome # Browser
+      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       onlyoffice-desktopeditors # Office package
 

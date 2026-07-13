@@ -11,15 +11,19 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Browser
+    helium.url = "github:amaanq/helium-flake";
+    helium.inputs.nixpkgs.follows = "nixpkgs";
+
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland/a0136d8c04687bb36eb8a28eb9d1ff92aea99704"; # v0.55.4
     hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors/da447486c84e0be81f2cdd208af1ef92469f0a88";
     hypr-dynamic-cursors.inputs.hyprland.follows = "hyprland";
 
-    dotfiles.url = "gitlab:strtab/illogical-impulce-dots/5809a38c5034a7a116cee73be2d6f615416b5aa4";
+    dotfiles.url = "gitlab:strtab/illogical-impulce-dots/dbf7cb4ece8b4cd8a290fc5958095f2771254d7b";
     dotfiles.flake = false;
     illogical-flake = {
-      url = "gitlab:strtab/illogical-flake/01e9849690b74be74b8947991df5a91a9b3c7265";
+      url = "gitlab:strtab/illogical-flake/c12a0cb061115572f875e6c6a1e01b5bb0c047a5";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dotfiles.follows = "dotfiles";
     };

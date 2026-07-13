@@ -116,17 +116,17 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1781020802,
-        "narHash": "sha256-VtL+Qf/yhm94utLlgisT9tOkrElsGr9ls3RERxhVj8Q=",
+        "lastModified": 1783802464,
+        "narHash": "sha256-+g40pnoYPO+Wol7C6vfVZmXyDNL1k8MGFB81YDeLrU0=",
         "owner": "strtab",
         "repo": "illogical-impulce-dots",
-        "rev": "5809a38c5034a7a116cee73be2d6f615416b5aa4",
+        "rev": "dbf7cb4ece8b4cd8a290fc5958095f2771254d7b",
         "type": "gitlab"
       },
       "original": {
         "owner": "strtab",
         "repo": "illogical-impulce-dots",
-        "rev": "5809a38c5034a7a116cee73be2d6f615416b5aa4",
+        "rev": "dbf7cb4ece8b4cd8a290fc5958095f2771254d7b",
         "type": "gitlab"
       }
     },
@@ -204,6 +204,26 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "gitignore.nix",
+        "type": "github"
+      }
+    },
+    "helium": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783673789,
+        "narHash": "sha256-Su+QQt2x62o3gH0MXoWS+cJxhBj3m0/46brREjLxZmU=",
+        "owner": "amaanq",
+        "repo": "helium-flake",
+        "rev": "d1b56c15b8952804f2c31e55dd805157e5d453b8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "amaanq",
+        "repo": "helium-flake",
         "type": "github"
       }
     },
@@ -955,17 +975,17 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1783187050,
-        "narHash": "sha256-RZmYLw4q3EDKJmTgDtskvmkKdhp3pjGFTUQaTsQgKJo=",
+        "lastModified": 1783805708,
+        "narHash": "sha256-ds0XkOZlzqArwjAjGoKQOwsFdknUFx7TupyVI3E3Pgc=",
         "owner": "strtab",
         "repo": "illogical-flake",
-        "rev": "01e9849690b74be74b8947991df5a91a9b3c7265",
+        "rev": "c12a0cb061115572f875e6c6a1e01b5bb0c047a5",
         "type": "gitlab"
       },
       "original": {
         "owner": "strtab",
         "repo": "illogical-flake",
-        "rev": "01e9849690b74be74b8947991df5a91a9b3c7265",
+        "rev": "c12a0cb061115572f875e6c6a1e01b5bb0c047a5",
         "type": "gitlab"
       }
     },
@@ -1156,6 +1176,7 @@
       "inputs": {
         "agenix": "agenix",
         "dotfiles": "dotfiles",
+        "helium": "helium",
         "home-manager": "home-manager_2",
         "hypr-dynamic-cursors": "hypr-dynamic-cursors",
         "hyprland": "hyprland",
