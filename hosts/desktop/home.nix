@@ -4,7 +4,6 @@
     ./variables.nix
 
     "${inputs.self}/home"
-    "${inputs.self}/home/shell/zsh.nix"
   ];
 
   home = {
