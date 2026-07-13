@@ -9,7 +9,7 @@
       enable = true;
       enableSSHSupport = true;
     };
-    mtr.enable = true; # my traceroute package, needed for network cap (maby...)
+    mtr.enable = true; # The 'my traceroute' package, needed for network cap (maby...)
   };
 
   security = {
