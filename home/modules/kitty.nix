@@ -5,7 +5,7 @@
     font = {
       # name = "family='Google Sans Code' variable_name=GoogleSansCode wght=440 MONO=1";
       # package = pkgs.googlesans-code;
-      name = "family='Geist Mono Nerd Mono'";
+      name = "family='GeistMono Nerd Font Mono' style=Regular features=-ss09";
       package = pkgs.nerd-fonts.geist-mono;
       size = 16;
     };
