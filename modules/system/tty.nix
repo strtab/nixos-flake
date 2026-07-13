@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 {
-  options.tty = {
+  options.modules.tty = {
     doubledFont = lib.mkEnableOption "Set doubled font for tty";
     font = lib.mkOption {
       type = lib.types.str;
@@ -8,18 +8,18 @@
     };
   };
   config = {
-    systemd.services.console-font-double = lib.mkIf config.tty.doubledFont {
+    systemd.services.console-font-double = lib.mkIf config.modules.tty.doubledFont {
       description = "Set doubled console font";
       after = [ "systemd-vconsole-setup.service" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;
-        ExecStart = "${pkgs.kbd}/bin/setfont ${config.tty.font} -d";
+        ExecStart = "${pkgs.kbd}/bin/setfont ${config.modules.tty.font} -d";
       };
     };
     console = {
-      font = config.tty.font;
+      font = config.modules.tty.font;
       colors = [
         "000000"
         "c34043"
