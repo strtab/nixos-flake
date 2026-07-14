@@ -62,6 +62,7 @@
     gnumake
     nodejs
     rustc
+    dotnetCorePackages.sdk_10_0
     cargo-tauri
     cargo
     cmake
