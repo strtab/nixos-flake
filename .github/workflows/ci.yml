@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: cachix/cachix-action@14
+      - uses: cachix/cachix-action@v14
         with:
           name: strtab-nixos-flake
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
