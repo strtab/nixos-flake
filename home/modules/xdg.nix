@@ -1,4 +1,4 @@
-{ config,  ... }:
+{ config, ... }:
 {
   xdg = {
     enable = true;
@@ -48,5 +48,7 @@
     WINEPREFIX = "${config.xdg.dataHome}/wine";
     XCOMPOSECACHE = "${config.xdg.cacheHome}/X11/xcompose";
     _Z_DATA = "${config.xdg.dataHome}/z";
+    W3M_DIR = "${config.xdg.dataHome}/w3m";
+    GNUHOME = "${config.xdg.dataHome}/gnupg";
   };
 }
