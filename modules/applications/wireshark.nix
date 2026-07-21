@@ -1,4 +1,9 @@
-{ config , pkgs , lib , ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   options.modules.wireshark = {
     enable = lib.mkEnableOption "Enable wireshark";

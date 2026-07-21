@@ -1,4 +1,9 @@
-{ inputs , lib , config , ... }:
+{
+  inputs,
+  lib,
+  config,
+  ...
+}:
 {
   options.modules.nix = {
     substituters = lib.mkOption {

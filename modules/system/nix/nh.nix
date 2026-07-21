@@ -1,4 +1,5 @@
-{ lib , config , ... }: {
+{ lib, config, ... }:
+{
   options.modules.nix.nh = {
     enable = lib.mkEnableOption "Enable nh" // {
       default = true;

@@ -1,4 +1,9 @@
-{ pkgs , lib , config , ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   options.modules.nix.ld.enable = lib.mkEnableOption "nix dynamic liblaries" // {
     default = true;

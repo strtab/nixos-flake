@@ -10,7 +10,7 @@
         kdePackages.xdg-desktop-portal-kde
       ];
       config = {
-        common.default = ["kde"];
+        common.default = [ "kde" ];
       };
     };
   };

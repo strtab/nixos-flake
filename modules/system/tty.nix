@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   options.modules.tty = {
     doubledFont = lib.mkEnableOption "Set doubled font for tty";

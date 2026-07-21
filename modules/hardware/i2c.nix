@@ -1,8 +1,9 @@
 # This module needed for brightness control.
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 {
   options.i2c = {

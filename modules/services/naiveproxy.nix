@@ -1,8 +1,9 @@
-{ pkgs
-, lib
-, config
-, inputs
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
 }:
 let
   naiveproxyPkg = pkgs.stdenv.mkDerivation rec {

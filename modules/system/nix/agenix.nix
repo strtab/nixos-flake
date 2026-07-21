@@ -1,4 +1,10 @@
-{ config, lib, inputs, pkgs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = [ inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   age = {
@@ -7,7 +13,9 @@
     #
     # To provision this key once:
     #   ssh-keygen -t ed25519 -f ~/.ssh/agenix
-    identityPaths = [ "${config.home-manager.users.${config.var.username}.home.homeDirectory}/.ssh/agenix" ];
+    identityPaths = [
+      "${config.home-manager.users.${config.var.username}.home.homeDirectory}/.ssh/agenix"
+    ];
 
     secrets = {
       git-credentials = lib.mkIf config.var.git.useSecrets {

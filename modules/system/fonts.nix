@@ -17,9 +17,18 @@
       enable = true;
       antialias = true;
       defaultFonts = {
-        monospace = ["JetBrainsMono Nerd Font" "Roboto Mono"];
-        sansSerif = ["Google Sans Flex" "Noto Sans"];
-        serif = ["Tex Gyre Schola" "Noto Serif"];
+        monospace = [
+          "JetBrainsMono Nerd Font"
+          "Roboto Mono"
+        ];
+        sansSerif = [
+          "Google Sans Flex"
+          "Noto Sans"
+        ];
+        serif = [
+          "Tex Gyre Schola"
+          "Noto Serif"
+        ];
       };
     };
   };
