@@ -10,8 +10,6 @@
     no_proxy = "192.168.1.1,localhost,127.0.0.1,localaddress,.localdomain.com,stationx.mo,drweb.com,lo,anilib.me,kodikplayer.com,homelab,anilib.me,.ru,video1.cdnlibs.org,translate.yandex.com,vk.com,userapi.com,aeza.ru,.lan,nixos.wiki";
   };
 
-  console.enable = false;
-
   modules = {
     common.enable = true;
     games.enable = true;

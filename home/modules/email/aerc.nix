@@ -5,7 +5,7 @@
     enable = true;
     package = pkgs.aerc;
   };
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     html2text
     exiftool
   ];

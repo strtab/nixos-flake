@@ -1,8 +1,9 @@
 # https://notmuchmail.org/
-{ lib
-, config
-, pkgs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  ...
 }:
 {
   services.mbsync.postExec = ''

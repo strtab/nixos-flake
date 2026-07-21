@@ -24,14 +24,14 @@
       "boot.shell_on_fail" # drop to shell on boot failure
 
       "i915.fastboot=1" # enable fastboot for i915 driver
-      "nowatchdog" # disable kernel watchdog 
+      "nowatchdog" # disable kernel watchdog
       "nosoftlockup" # disable soft lockup detector
-      "audit=0" # disable audit subsystem 
-      "skew_tick=1" # enable skewed ticks 
+      "audit=0" # disable audit subsystem
+      "skew_tick=1" # enable skewed ticks
       "threadirqs" # run kernel threads on the same cpu as the process that created them
       "preempt=full" # enable full preemption (low latency)
-      "nohz_full=all" # enable full dynamic ticks 
-      "mitigations=off" # disable cpu security 
+      "nohz_full=all" # enable full dynamic ticks
+      "mitigations=off" # disable cpu security
 
       "video=HDMI-A-1:1920x1080@75"
       "video=LVDS-1:d" # disable monitor

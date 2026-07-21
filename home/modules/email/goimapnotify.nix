@@ -1,6 +1,11 @@
 # For syncing email to a local maildir
 # https://gitlab.com/shackra/goimapnotify
-{ lib , pkgs , config , ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   home.packages = with pkgs; [
     goimapnotify

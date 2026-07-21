@@ -1,6 +1,11 @@
 # For syncing email to a local maildir
 # https://isync.sourceforge.io/mbsync.html
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   home.packages = with pkgs; [
     isync

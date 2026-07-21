@@ -16,7 +16,8 @@
     };
   };
 
-  options = { # Create "var" option witch can contain any variables.
+  options = {
+    # Create "var" option witch can contain any variables.
     var = lib.mkOption {
       type = lib.types.attrs;
       default = { };
