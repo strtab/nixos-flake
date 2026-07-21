@@ -35,7 +35,7 @@
       # Edit command line
       autoload -z edit-command-line
       zle -N edit-command-line
-      bindkey "^E" edit-command-line
+      bindkey "\ee" edit-command-line
 
       mkdir -p $XDG_CACHE_HOME/zsh &>/dev/null
 
@@ -48,24 +48,6 @@
       ${lib.optionalString config.programs.bat.enable ''
         alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
       ''};
-
-      if (( COLUMNS > 200 && LINES > 30 )); then 
-        cat << 'EOF' > /dev/stdout
-      ▲
-      __  __                                     _            __
-      \ \/ /___  __  __   _________ _____       (_)_  _______/ /_
-       \  / __ \/ / / /  / ___/ __ `/ __ \     / / / / / ___/ __/
-       / / /_/ / /_/ /  / /__/ /_/ / / / /    / / /_/ (__  ) /_/
-       _/\____/\__,_/   \___/\__,_/_/ /_/  __/ /\__,_/____/\__/
-               __    _          __  __    /___/
-         _____/ /_  (_)___     / /_/ /_  (_)___  ____ ______
-        / ___/ __ \/ / __ \   / __/ __ \/ / __ \/ __ `/ ___/
-       (__  ) / / / / /_/ /  / /_/ / / / / / / / /_/ (__  )
-      /____/_/ /_/_/ .___/   \__/_/ /_/_/_/ /_/\__, /____/
-                  /_/                         /____/
-
-      EOF
-      fi
     '';
   };
 }
