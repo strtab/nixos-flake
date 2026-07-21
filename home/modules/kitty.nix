@@ -1,5 +1,6 @@
 { pkgs, config, ... }:
 {
+  home.packages = with pkgs; [ nerd-fonts.symbols-only ];
   programs.kitty = {
     enable = true;
     font = {
@@ -19,6 +20,10 @@
       cursor_shape = "block";
       cursor_trail = 0;
       cursor_stop_blinking_after = 0;
+      symbol_map = "U+23F0-U+23FF Symbols Nerd Font Mono";
+      allow_hyperlinks = true;
+      underline_hyperlinks = "always";
+      show_hyprlink_target_on_hover = true;
     };
     keybindings = {
       "ctrl+plus" = "change_font_size all +1";
