@@ -1,0 +1,26 @@
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/cachix-action@14
+        with:
+          name: strtab-nixos-flake
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - uses: cachix/install-nix-action@v25
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Flake format check
+        run: test -z $(nix run nixpkgs#nixfmt-tree)
+
+      - name: Flake check
+        run: nix flake check --print-build-logs
