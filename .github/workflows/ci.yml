@@ -1,6 +1,8 @@
 name: CI
 
 on: [push, pull_request, workflow_dispatch]
+env: 
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
 jobs:
   build:
@@ -20,7 +22,7 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Flake format check
-        run: test -z $(nix run nixpkgs#nixfmt-tree)
+        run: test -z $(nix run nixpkgs#nixfmt-tree -- --ci)
 
       - name: Flake check
         run: nix flake check --print-build-logs
