@@ -19,7 +19,7 @@ in
       with pkgs.kdePackages;
       let
         geist = breeze.overrideAttrs (old: {
-          pname = "geist"; 
+          pname = "geist";
           version = "local";
           src = inputs.geist;
           postInstall = ''
