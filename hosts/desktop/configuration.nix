@@ -12,7 +12,6 @@
 
   modules = {
     common.enable = true;
-    games.enable = true;
     plasma.enable = true;
     vial.enable = true;
     services = {
@@ -26,12 +25,12 @@
     };
   };
 
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 20 * 1024;
-    }
-  ];
+  # swapDevices = [
+  #   {
+  #     device = "/var/lib/swapfile";
+  #     size = 20 * 1024;
+  #   }
+  # ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;
   system.stateVersion = "25.11";
