@@ -7,7 +7,8 @@
     "ll" = "ls --group-directories-first -lha";
     "l" = "ls --group-directories-first -lh";
     "la" = "ls --group-directories-first -ah";
-    "gl" = "git log --pretty=format:\"%h %s\" --graph";
+    "gl" = "git log --pretty=format:\"%h %s\" --graph | head";
+    "gla" = "git log --pretty=format:\"%h %s\" --graph";
     "ga" = "git add";
     "gs" = "git status";
     "gc" = "git commit";
