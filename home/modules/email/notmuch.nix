@@ -20,7 +20,7 @@
       chmod 600 "${config.xdg.configHome}/notmuch.conf" 2>/dev/null || true
     '';
 
-    file."${config.home.homeDirectory}/.local/mail/.notmuch/hooks/post-new" = {
+    file."${config.home.homeDirectory}/.local/share/mail/.notmuch/hooks/post-new" = {
       force = true;
       executable = true;
       text = ''
