@@ -5,6 +5,8 @@
   # searched online, not via `man`, so skip it — measurable eval-time win.
   manual.manpages.enable = false;
 
+  xdg.configFile."fontconfig/conf.d/10-hm-fonts.conf".force = true;
+
   imports = [
     ./agenix.nix
     ./shell

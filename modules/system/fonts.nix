@@ -3,13 +3,12 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      googlesans-code
+      inter
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts
 
       nerd-fonts.jetbrains-mono
-
       geist-font
     ];
 
@@ -18,13 +17,19 @@
     fontconfig = {
       enable = true;
       antialias = true;
+      hinting = {
+        enable = true;
+        style = "slight";
+      };
+      subpixel.rgba = "none";
       defaultFonts = {
         monospace = [
+          "Geist Mono Medium"
           "JetBrainsMono Nerd Font"
           "Roboto Mono"
         ];
         sansSerif = [
-          "Google Sans Flex"
+          "Inter"
           "Noto Sans"
         ];
         serif = [

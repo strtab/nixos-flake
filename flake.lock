@@ -10,11 +10,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1788720235,
-        "narHash": "sha256-8BIWyKJ8eMNZ+uJQk5/14ufgLPUxsvYKdTCN1PPrfp0=",
+        "lastModified": 1788813441,
+        "narHash": "sha256-79vaG7XCy97V6X4L9bYznwWn37iGxUTiwGh7I+AzIS8=",
         "owner": "strtab",
         "repo": "aether",
-        "rev": "bc310c8519d5a61e066ea007c15bf8614a28ea4c",
+        "rev": "3bea41113008cc6ac64c94fd5e94fd0e55bbe1a0",
         "type": "github"
       },
       "original": {
@@ -139,11 +139,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1788720163,
-        "narHash": "sha256-Ln702HhMoz94UyB7uxODsSbEsz1OVLaf/UPgj0fRHj4=",
+        "lastModified": 1788813371,
+        "narHash": "sha256-GaGiXaYgW538as5HEnkJ7GWzBxM3YqgpeIvW4OS90lE=",
         "owner": "strtab",
         "repo": "aether",
-        "rev": "f1bb93f2b267abdf35ecbbfc0a0f7314920514e5",
+        "rev": "4ffd791851c3ed8532845bd058c1b0c32c526d5c",
         "type": "github"
       },
       "original": {
