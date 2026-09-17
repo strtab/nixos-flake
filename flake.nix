@@ -12,7 +12,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Browser
-    helium.url = "github:amaanq/helium-flake/d1b56c15b8952804f2c31e55dd805157e5d453b8"; # v0.14.5.1
+    helium.url = "github:amaanq/helium-flake/0bf1ab5b25bb9ca10ea21b3124825f89da520c5d"; # v0.17.1.1
     helium.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprland
