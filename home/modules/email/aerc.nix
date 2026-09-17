@@ -24,7 +24,7 @@
     icon-invalid=⚠
 
     [viewer]
-    alternatives=text/plain,text/html
+    alternatives=text/html,text/plain
     header-layout=From|To,Cc|Bcc,Date,Subject
     show-headers=false
     always-show-mime=false
@@ -37,7 +37,7 @@
     text/calendar=calendar
     message/delivery-status=colorize
     message/rfc822=colorize
-    text/html=! html2text -ansi -links -width \$\{COLUMNS:-80\} | less
+    text/html=! html2text -nobs -links | less
 
     .headers=colorize
 
