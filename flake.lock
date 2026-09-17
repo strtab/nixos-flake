@@ -10,11 +10,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1788813441,
-        "narHash": "sha256-79vaG7XCy97V6X4L9bYznwWn37iGxUTiwGh7I+AzIS8=",
+        "lastModified": 1789679866,
+        "narHash": "sha256-/I0uLTFuSEQoNisxXZCaimvdqCBhSM1hnt0Pq1Eu+0E=",
         "owner": "strtab",
         "repo": "aether",
-        "rev": "3bea41113008cc6ac64c94fd5e94fd0e55bbe1a0",
+        "rev": "63f03f836c30780d556f421cba48615254dee0cf",
         "type": "github"
       },
       "original": {
