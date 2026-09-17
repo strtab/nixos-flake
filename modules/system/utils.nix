@@ -1,4 +1,15 @@
 { pkgs, ... }:
+let
+  open = pkgs.writeShellScriptBin "open" ''
+    #/usr/bin/env sh
+    if [[ -z $1 ]]; then
+      setsid -f gio open . 2>/dev/null
+    fi
+    for i in $@; do
+      setsid -f gio open $i 2>/dev/null
+    done
+  '';
+in
 {
   programs = {
     nano.enable = false;
@@ -34,6 +45,8 @@
     ripgrep
     neovim
     tree
+    open
+    glib
     git
     xxd
     fd
