@@ -24,7 +24,7 @@
     icon-invalid=⚠
 
     [viewer]
-    alternatives=text/html,text/plain
+    alternatives=text/plain,text/html
     header-layout=From|To,Cc|Bcc,Date,Subject
     show-headers=false
     always-show-mime=false
