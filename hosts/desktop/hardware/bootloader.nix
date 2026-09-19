@@ -1,6 +1,19 @@
 {
-  boot.initrd.kernelModules = [ "i915" ];
   boot = {
+    initrd.kernelModules = [ "i915" ];
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
+
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "ehci_pci"
+      "ahci"
+      "usb_storage"
+      "sd_mod"
+      "sr_mod"
+      "rtsx_pci_sdmmc"
+    ];
+
     loader = {
       systemd-boot = {
         enable = true;

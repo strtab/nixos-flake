@@ -23,13 +23,6 @@
     };
   };
 
-  # swapDevices = [
-  #   {
-  #     device = "/var/lib/swapfile";
-  #     size = 20 * 1024;
-  #   }
-  # ];
-
   home-manager.users."${config.var.username}" = import ./home.nix;
   system.stateVersion = "25.11";
 }
