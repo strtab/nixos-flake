@@ -6,10 +6,8 @@
   ...
 }:
 {
-  options = {
-    modules.common = {
-      enable = lib.mkEnableOption "Enable common gui applications";
-    };
+  options.modules.common = {
+    enable = lib.mkEnableOption "Enable common GUI packages";
   };
   config = lib.mkIf config.modules.common.enable {
     environment.systemPackages = with pkgs; [
@@ -22,12 +20,7 @@
       nomacs # Image viewer
       haruna # Video viewer
 
-      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-      onlyoffice-desktopeditors # Office package
-
-      tmux
-      anki
+      anki # Flash cards
     ];
   };
 }

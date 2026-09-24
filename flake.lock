@@ -200,6 +200,30 @@
         "type": "github"
       }
     },
+    "hagezi_piracy": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-DEQ+HDBC1os47a2/R48kftljZPHe2klkIjs49qGXA2g=",
+        "type": "file",
+        "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/anti.piracy-onlydomains.txt"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/anti.piracy-onlydomains.txt"
+      }
+    },
+    "hagezi_pro": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-xd1AgcSyCBcb3g9qdzpl/JGnYS0TCa/M3ElbOdVWkMc=",
+        "type": "file",
+        "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/pro.plus-onlydomains.txt"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/pro.plus-onlydomains.txt"
+      }
+    },
     "helium": {
       "inputs": {
         "nixpkgs": [
@@ -1105,6 +1129,8 @@
         "aether": "aether",
         "agenix": "agenix",
         "geist": "geist",
+        "hagezi_piracy": "hagezi_piracy",
+        "hagezi_pro": "hagezi_pro",
         "helium": "helium",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland_2",

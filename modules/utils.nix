@@ -61,7 +61,7 @@ in
     pstree
 
     # fs/files
-    smartmontools # smartctl
+    smartmontools 
     exfatprogs
     e2fsprogs
     ntfs3g

@@ -13,5 +13,7 @@
     "ec" = "echo \"$?\"";
     "sduo" = "sudo";
     "clean" = "sync; nh clean all --keep 3 --optimise";
+    "nh" = "SOCKS_SERVER=\"\" https_proxy=\"\" http_proxy=\"\" all_proxy=\"\" nh";
+    "nix" = "SOCKS_SERVER=\"\" https_proxy=\"\" http_proxy=\"\" all_proxy=\"\" nix";
   };
 }

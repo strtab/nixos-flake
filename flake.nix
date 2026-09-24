@@ -11,6 +11,12 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # DNS block lists
+    hagezi_pro.url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/pro.plus-onlydomains.txt";
+    hagezi_pro.flake = false;
+    hagezi_piracy.url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/anti.piracy-onlydomains.txt";
+    hagezi_piracy.flake = false;
+
     # Browser
     helium.url = "github:amaanq/helium-flake/0bf1ab5b25bb9ca10ea21b3124825f89da520c5d"; # v0.17.1.1
     helium.inputs.nixpkgs.follows = "nixpkgs";
