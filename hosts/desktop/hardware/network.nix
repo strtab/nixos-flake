@@ -1,10 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   services = { openssh.enable = true; };
   networking = {

@@ -1,6 +1,6 @@
 {
   boot = {
-    initrd.kernelModules = [ "i915" ];
+    initrd.kernelModules = [ ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
 
@@ -36,7 +36,6 @@
 
       "boot.shell_on_fail" # drop to shell on boot failure
 
-      "i915.fastboot=1" # enable fastboot for i915 driver
       "nowatchdog" # disable kernel watchdog
       "nosoftlockup" # disable soft lockup detector
       "audit=0" # disable audit subsystem

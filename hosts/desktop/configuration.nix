@@ -12,14 +12,12 @@
 
   modules = {
     common.enable = true;
-    plasma.enable = true;
+    office.enable = true;
     games.enable = true;
     vial.enable = true;
-    services = {
-      hysteria = {
-        useSecrets = true;
-        enable = true;
-      };
+    hysteria = {
+      useSecrets = true;
+      enable = true;
     };
   };
 
