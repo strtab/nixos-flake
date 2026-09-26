@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.modules.services.hysteria;
+  cfg = config.modules.hysteria;
 
   hysteriaPkg = pkgs.stdenv.mkDerivation rec {
     pname = "hysteria";
@@ -43,7 +43,7 @@ let
   };
 in
 {
-  options.modules.services.hysteria = {
+  options.modules.hysteria = {
     enable = lib.mkEnableOption "hysteria client";
 
     setVariables =

@@ -6,6 +6,7 @@
   ...
 }:
 let
+  cfg = config.modules.naiveproxy;
   naiveproxyPkg = pkgs.stdenv.mkDerivation rec {
     pname = "naiveproxy";
     version = "150.0.7871.63-1";
@@ -34,7 +35,7 @@ let
   };
 in
 {
-  options.modules.services.naiveproxy = {
+  options.modules.naiveproxy = {
     enable = lib.mkEnableOption "naive proxy";
     setVariables = lib.mkEnableOption "Use environment variables" // {
       default = true;
@@ -54,7 +55,7 @@ in
     };
   };
 
-  config = lib.mkIf config.modules.services.naiveproxy.enable {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = [ naiveproxyPkg ];
 
     systemd.services.naiveproxy = {
@@ -79,12 +80,12 @@ in
       });
     '';
 
-    environment.sessionVariables = lib.mkIf config.modules.services.naiveproxy.setVariables {
+    environment.sessionVariables = lib.mkIf cfg.setVariables {
       SOCKS_SERVER = "localhost:10808";
       SOCKS_VERSION = "5";
     };
 
-    age.secrets.naiveproxy = lib.mkIf config.modules.services.naiveproxy.useSecrets {
+    age.secrets.naiveproxy = lib.mkIf cfg.useSecrets {
       file = "${inputs.self}/secrets/naiveproxy.age";
       path = "/etc/naiveproxy/config.json";
       # owner = "naiveproxy";
@@ -93,20 +94,18 @@ in
       mode = "444";
     };
 
-    system.activationScripts.naiveproxyConfig =
-      lib.mkIf (config.modules.services.naiveproxy.useSecrets == false)
-        (
-          let
-            configFile = pkgs.writeText "config.json" (
-              builtins.toJSON config.modules.services.naiveproxy.configDefault
-            );
-          in
-          ''
-            if [[ ! -f /etc/naiveproxy/config.json ]]; then 
-              mkdir -p /etc/naiveproxy
-              cp ${configFile} /etc/naiveproxy/config.json
-            fi
-          ''
+    system.activationScripts.naiveproxyConfig = lib.mkIf (cfg.useSecrets == false) (
+      let
+        configFile = pkgs.writeText "config.json" (
+          builtins.toJSON cfg.configDefault
         );
+      in
+      ''
+        if [[ ! -f /etc/naiveproxy/config.json ]]; then 
+          mkdir -p /etc/naiveproxy
+          cp ${configFile} /etc/naiveproxy/config.json
+        fi
+      ''
+    );
   };
 }

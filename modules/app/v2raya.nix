@@ -47,7 +47,7 @@ let
 in
 {
   options.modules.services.v2raya = {
-    enable = lib.mkEnableOption "v2raya";
+    enable = lib.mkEnableOption "Enable v2raya proxy client";
     autoStart = lib.mkOption {
       type = lib.types.bool;
       default = false;
