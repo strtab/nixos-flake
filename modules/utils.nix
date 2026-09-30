@@ -57,6 +57,7 @@ in
     uutils-coreutils-noprefix
     usbutils
     pciutils
+    linuxPackages.cpupower
     hwinfo
     pstree
 
