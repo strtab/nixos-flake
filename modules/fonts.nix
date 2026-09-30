@@ -4,6 +4,12 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       inter
+
+      vista-fonts
+      corefonts
+
+      twemoji-color-font
+
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts
@@ -28,6 +34,7 @@
           "JetBrainsMono Nerd Font"
           "Roboto Mono"
         ];
+        emoji = [ "Twitter Color Emoji" ];
         sansSerif = [
           "Inter"
           "Noto Sans"
