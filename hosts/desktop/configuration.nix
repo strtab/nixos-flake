@@ -19,6 +19,9 @@
       useSecrets = true;
       enable = true;
     };
+    local-llm = {
+      enable = true;
+    };
   };
 
   home-manager.users."${config.var.username}" = import ./home.nix;

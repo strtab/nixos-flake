@@ -30,10 +30,8 @@
     geist.url = "github:strtab/Plasma-Geist-visual-style";
     geist.flake = false;
 
-    aether = {
-      url = "github:strtab/aether";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    aether.url = "github:strtab/aether";
+    aether.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
