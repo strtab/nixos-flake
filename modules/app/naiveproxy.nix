@@ -96,9 +96,7 @@ in
 
     system.activationScripts.naiveproxyConfig = lib.mkIf (cfg.useSecrets == false) (
       let
-        configFile = pkgs.writeText "config.json" (
-          builtins.toJSON cfg.configDefault
-        );
+        configFile = pkgs.writeText "config.json" (builtins.toJSON cfg.configDefault);
       in
       ''
         if [[ ! -f /etc/naiveproxy/config.json ]]; then 

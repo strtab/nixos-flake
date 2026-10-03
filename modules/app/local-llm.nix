@@ -34,7 +34,8 @@ in
 
     environment.shellAliases = {
       "llm" = "ollama launch claude --model ${cfg.defaultModel}";
-      "llmlite" = "ollama launch claude --model ${cfg.defaultModel} -- --tools \"Read,Edit,Write,Bash,Grep,Glob\"";
+      "llmlite" =
+        "ollama launch claude --model ${cfg.defaultModel} -- --tools \"Read,Edit,Write,Bash,Grep,Glob\"";
     };
 
     environment.sessionVariables = {
@@ -55,7 +56,10 @@ in
         OLLAMA_KEEP_ALIVE = cfg.keepAlive;
         OLLAMA_NO_CLOUD = "1";
       };
-      loadModels = [ "qwen2.5-coder:1.5b" cfg.defaultModel ];
+      loadModels = [
+        "qwen2.5-coder:1.5b"
+        cfg.defaultModel
+      ];
     };
   };
 }

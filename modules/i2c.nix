@@ -1,4 +1,4 @@
-# This module needed for access all devices on an adapters 
+# This module needed for access all devices on an adapters
 # (ecpecially for brightness control on external monitors).
 # https://www.kernel.org/doc/html/v5.4/i2c/dev-interface.html
 {

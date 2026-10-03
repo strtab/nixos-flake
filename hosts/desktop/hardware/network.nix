@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
-  services = { openssh.enable = true; };
+  services = {
+    openssh.enable = true;
+  };
   networking = {
     hostName = config.var.hostname;
 
