@@ -18,6 +18,7 @@
       set -g repeat-time 1000
       set -g history-limit 50000
       set -g set-clipboard on 
+      set -g focus-events on
       setw -g mode-keys vi
 
       set -g mode-style "fg=black,bg=white"
