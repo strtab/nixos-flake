@@ -26,7 +26,7 @@
             gsub(q, "", path)
             system("mkdir -p \"" path "\"")
           }
-        '
+        ' || true
         ${pkgs.isync}/bin/mbsync -a || true
       '';
 }
