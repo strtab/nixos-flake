@@ -1,13 +1,14 @@
 { ... }:
 {
   imports = [
-    ./git.nix
+    ./claude-code.nix
     ./hyprland.nix
-    ./kitty.nix
     ./obsidian.nix
     ./neovim.nix
+    ./kitty.nix
     ./tmux.nix
     ./xdg.nix
+    ./git.nix
     ./email
   ];
 }

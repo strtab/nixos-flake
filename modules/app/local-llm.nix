@@ -31,15 +31,17 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-
     environment.shellAliases = {
       "llm" = "ollama launch claude --model ${cfg.defaultModel}";
       "llmlite" =
-        "ollama launch claude --model ${cfg.defaultModel} -- --tools \"Read,Edit,Write,Bash,Grep,Glob\"";
+        "ollama launch claude --model ${cfg.defaultModel} -- --tools \"Read,Edit,Write,Bash,Grep,Glob,AskUserQuestion,WebFetch,WebSearch\" --no-chrome ";
+      "llmlight" =
+        "ollama launch claude --model ${cfg.defaultModel} -- --tools \"Read,Edit,Write,Bash,Grep,Glob,AskUserQuestion,WebFetch,WebSearch\" --no-chrome ";
     };
 
     environment.sessionVariables = {
       CLAUDE_CODE_MAX_CONTEXT_TOKENS = cfg.contextLength;
+      CLAUDE_CODE_MAX_OUTPUT_TOKENS = "64000";
       CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT = "1";
     };
 

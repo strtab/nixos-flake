@@ -23,6 +23,10 @@
 
       set -g mode-style "fg=black,bg=white"
 
+      set -g allow-passthrough on
+      set -s extended-keys on
+      set -as terminal-features 'xterm*:extkeys'
+
       set -g status-position top 
       set -g message-style "bg=default,fg=white"
       set -g status-style 'bg=default fg=colour8'
@@ -39,9 +43,6 @@
       set-option -g popup-border-style "bg=default,fg=#5f5f5f"
 
       unbind-key -a
-
-      set -g extended-keys on
-      set -g extended-keys-format csi-u
 
       set -g prefix C-space
       bind C-space send-prefix
