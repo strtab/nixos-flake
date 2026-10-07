@@ -22,7 +22,7 @@ in
     };
     defaultModel = lib.mkOption {
       type = lib.types.str;
-      default = "gemma4:26b";
+      default = "qwen3.8:27b";
     };
     keepAlive = lib.mkOption {
       type = lib.types.str;
@@ -46,6 +46,8 @@ in
     };
 
     environment.systemPackages = with pkgs; [ claude-code ];
+
+    systemd.services.ollama.after = [ "graphical.target" ];
 
     services.ollama = {
       enable = true;

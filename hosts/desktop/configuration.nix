@@ -11,16 +11,17 @@
   };
 
   modules = {
+    virt-manager.enable = true;
     common.enable = true;
     office.enable = true;
     games.enable = true;
     vial.enable = true;
-    virt-manager = true;
     hysteria = {
       useSecrets = true;
       enable = true;
     };
     local-llm = {
+      contextLength = "64000";
       enable = true;
     };
   };
