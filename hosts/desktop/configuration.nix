@@ -15,6 +15,7 @@
     office.enable = true;
     games.enable = true;
     vial.enable = true;
+    virt-manager = true;
     hysteria = {
       useSecrets = true;
       enable = true;
