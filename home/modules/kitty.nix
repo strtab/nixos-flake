@@ -16,7 +16,8 @@
     shellIntegration.mode = "no-cursor";
     enableGitIntegration = true;
     settings = {
-      enable_audio_bell = false;
+      enable_audio_bell = true;
+      remember_window_size = false;
       confirm_os_window_close = 0;
       window_padding_width = 5;
       cursor_shape = "block";
