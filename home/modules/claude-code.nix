@@ -1,5 +1,5 @@
 { config, ... }:
-let 
+let
   configDir = "${config.xdg.configHome}/claude";
 in
 {
@@ -100,6 +100,7 @@ in
 
       GREEN='\033[32m'
       YELLOW='\033[33m'
+      RED='\033[31m'
       RESET='\033[0m'
 
       # Pick bar color based on context usage
@@ -108,13 +109,13 @@ in
       else BAR_COLOR="$GREEN"; fi
 
       # Build progress bar: printf -v creates a run of spaces, then
-      # $\{var// /▓} replaces each space with a block character
+      # the substitution replaces each space with a bar character
       BAR_WIDTH=13
       FILLED=$((PCT * BAR_WIDTH / 100))
       EMPTY=$((BAR_WIDTH - FILLED))
       BAR=""
-      [ "$FILLED" -gt 0 ] && printf -v FILL "%$\{FILLED}s" && BAR="$\{FILL// /▓}"
-      [ "$EMPTY" -gt 0 ] && printf -v PAD "%$\{EMPTY}s" && BAR="$\{BAR}$\{PAD// /░}"
+      [ "$FILLED" -gt 0 ] && printf -v FILL "%''${FILLED}s" && BAR="''${FILL// /#}"
+      [ "$EMPTY" -gt 0 ] && printf -v PAD "%''${EMPTY}s" && BAR="''${BAR}''${PAD// /-}"
 
       if git rev-parse --git-dir >/dev/null 2>&1; then
         BRANCH=$(git branch --show-current 2>/dev/null)
@@ -122,12 +123,12 @@ in
         MODIFIED=$(git diff --numstat 2>/dev/null | wc -l | tr -d ' ')
 
         GIT_STATUS=""
-        [ "$STAGED" -gt 0 ] && GIT_STATUS="$\{GREEN}+$\{STAGED}$\{RESET}"
-        [ "$MODIFIED" -gt 0 ] && GIT_STATUS="$\{GIT_STATUS}$\{YELLOW}~$\{MODIFIED}$\{RESET}"
+        [ "$STAGED" -gt 0 ] && GIT_STATUS="''${GREEN}+''${STAGED}''${RESET}"
+        [ "$MODIFIED" -gt 0 ] && GIT_STATUS="''${GIT_STATUS}''${YELLOW}~''${MODIFIED}''${RESET}"
 
-        echo -e "[$MODEL] $\{BAR_COLOR}$\{BAR}$\{RESET} $\{PCT}% | $COST_FMT | $BRANCH $GIT_STATUS"
+        echo -e "[$MODEL] ''${BAR_COLOR}[''${BAR}]''${RESET} ''${PCT}% | $COST_FMT | $BRANCH $GIT_STATUS"
       else
-        echo -e "[$MODEL] $\{BAR_COLOR}$\{BAR}$\{RESET} $\{PCT}% | $COST_FMT"
+        echo -e "[$MODEL] ''${BAR_COLOR}[''${BAR}]''${RESET} ''${PCT}% | $COST_FMT"
       fi
     '';
   };

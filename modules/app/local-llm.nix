@@ -1,7 +1,8 @@
 {
+  pkgs-unstable,
+  config,
   pkgs,
   lib,
-  config,
   ...
 }:
 let
@@ -9,24 +10,28 @@ let
 in
 {
   options.modules.local-llm = {
-    enable = lib.mkEnableOption "local ollama and claude code";
+    enable = lib.mkEnableOption "Whether to enable ollama server and claude-code for local large language models.";
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.ollama-cuda.override { cudaArches = [ "61" ]; };
-      defaultText = lib.literalExpression ''pkgs.ollama-cuda.override { cudaArches = [ "61" ]; }'';
-      description = "Ollama package to use";
+      default = pkgs.ollama;
+      description = "The ollama package to use. Different packages use different hardware acceleration.";
     };
     contextLength = lib.mkOption {
       type = lib.types.str;
-      default = "32768";
+      default = "64000";
     };
     defaultModel = lib.mkOption {
       type = lib.types.str;
-      default = "qwen3.8:27b";
+      default = "fredrezones55/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive:q4";
+      description = "The primary model to use.";
     };
     keepAlive = lib.mkOption {
       type = lib.types.str;
       default = "5m";
+    };
+    waitForNvidiaGpu = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
     };
   };
 
@@ -45,9 +50,11 @@ in
       CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT = "1";
     };
 
-    environment.systemPackages = with pkgs; [ claude-code ];
+    environment.systemPackages = with pkgs-unstable; [ claude-code ];
 
-    systemd.services.ollama.after = [ "graphical.target" ];
+    systemd.services.ollama.serviceConfig.ExecStartPre = lib.mkIf cfg.waitForNvidiaGpu [
+      "${pkgs.bash}/bin/bash -c 'for i in $(seq 1 60); do [ -e /dev/nvidia0 ] && [ -e /dev/nvidiactl ] && exit 0; sleep 1; done; exit 1'"
+    ];
 
     services.ollama = {
       enable = true;

@@ -1,6 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     import-tree.url = "github:denful/import-tree"; # Importing all modules from a directory
     agenix.url = "github:ryantm/agenix"; # Secrets
@@ -35,11 +37,36 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, import-tree, ... }:
+    inputs@{
+      nixpkgs,
+      nixpkgs-master,
+      nixpkgs-unstable,
+      import-tree,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      pkgs-master = import nixpkgs-master {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in
     {
       nixosConfigurations.moonveil = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        inherit system;
+        specialArgs = {
+          inherit
+            inputs
+            nixpkgs
+            system
+            pkgs-unstable
+            pkgs-master
+            ;
+        };
         modules = [
           { _module.args = { inherit inputs; }; }
           inputs.nix-index-database.nixosModules.default

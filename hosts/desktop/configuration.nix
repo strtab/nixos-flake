@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ config, inputs, pkgs-master, ... }:
 {
   imports = [
     (inputs.import-tree "${inputs.self}/modules")
@@ -21,7 +21,11 @@
       enable = true;
     };
     local-llm = {
-      contextLength = "64000";
+      waitForNvidiaGpu = true;
+      package = pkgs-master.ollama-cuda.override {
+        cudaPackages = pkgs-master.cudaPackages_12;
+        cudaArches = [ "61" ];
+      };
       enable = true;
     };
   };
