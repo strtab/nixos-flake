@@ -241,6 +241,37 @@
         "type": "github"
       }
     },
+    "hyblock": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "nixpkgs": [
+          "hyblock",
+          "hyprland",
+          "nixpkgs"
+        ],
+        "systems": [
+          "hyblock",
+          "hyprland",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791638519,
+        "narHash": "sha256-cEp1TL3Nw3pweMnc7nbWcKnp8847srEKAJX7G6LghP4=",
+        "owner": "strtab",
+        "repo": "hyblock",
+        "rev": "65e441bd2fcf57219497066d10eef52d9957a3a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "strtab",
+        "ref": "v0.56.1",
+        "repo": "hyblock",
+        "type": "github"
+      }
+    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -571,8 +602,8 @@
       },
       "original": {
         "owner": "hyprwm",
+        "ref": "v0.56.1",
         "repo": "Hyprland",
-        "rev": "5c9377c15f85c50648f35ca5a213754f95b93ca0",
         "type": "github"
       }
     },
@@ -1119,6 +1150,7 @@
         "hagezi_pro": "hagezi_pro",
         "helium": "helium",
         "home-manager": "home-manager",
+        "hyblock": "hyblock",
         "hyprland": "hyprland_2",
         "import-tree": "import-tree",
         "nix-index-database": "nix-index-database",

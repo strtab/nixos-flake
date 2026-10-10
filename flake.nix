@@ -4,8 +4,8 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    import-tree.url = "github:denful/import-tree"; # Importing all modules from a directory
-    agenix.url = "github:ryantm/agenix"; # Secrets
+    import-tree.url = "github:denful/import-tree";
+    agenix.url = "github:ryantm/agenix"; 
 
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -24,7 +24,9 @@
     helium.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprland
-    hyprland.url = "github:hyprwm/Hyprland/5c9377c15f85c50648f35ca5a213754f95b93ca0"; # v0.56.1
+    hyprland.url = "github:hyprwm/Hyprland?ref=v0.56.1";
+    hyblock.url = "github:strtab/hyblock?ref=v0.56.1";
+    hyblock.inputs.hyprland.follows = "hyprland";
     # hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors/da447486c84e0be81f2cdd208af1ef92469f0a88";
     # hypr-dynamic-cursors.inputs.hyprland.follows = "hyprland";
 
