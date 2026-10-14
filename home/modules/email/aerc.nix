@@ -254,7 +254,7 @@
   '';
 
   home.file."${config.xdg.configHome}/aerc/accounts.conf".enable = false;
-  home.activation.linkAercConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.linkAercConfig = config.lib.dag.entryAfter [ "reloadSystemd" ] ''
     mkdir -p "${config.xdg.configHome}/aerc"
     ln -sf "${config.age.secrets.aerc-accounts.path}" "${config.xdg.configHome}/aerc/accounts.conf"
     chmod 600 "${config.xdg.configHome}/aerc/accounts.conf" 2>/dev/null || true

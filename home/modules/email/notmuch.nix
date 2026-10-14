@@ -15,7 +15,7 @@
     sessionVariables.NOTMUCH_CONFIG = lib.mkForce "${config.xdg.configHome}/notmuch.conf";
 
     file."${config.xdg.configHome}/notmuch.conf".enable = false;
-    activation.linkNotmuchConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+    activation.linkNotmuchConfig = config.lib.dag.entryAfter [ "reloadSystemd" ] ''
       ln -sf "${config.age.secrets.notmuch.path}" "${config.xdg.configHome}/notmuch.conf"
       chmod 600 "${config.xdg.configHome}/notmuch.conf" 2>/dev/null || true
     '';
