@@ -41,6 +41,10 @@ in
   # enable zsh autocompletion for system packages (systemd, etc)
   environment.pathsToLink = [ "/share/zsh" ];
 
+  environment.variables = {
+    "_JAVA_OPTIONS" = "-Dawt.useSystemAAFontSettings=lcd";
+  };
+
   environment.systemPackages = with pkgs; [
     ripgrep
     neovim
@@ -95,6 +99,7 @@ in
     cargo
     cmake
     lua
+    jdk
     gcc
     go
   ];

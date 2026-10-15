@@ -13,6 +13,7 @@
 
     environment.systemPackages = with pkgs; [
       nwjs # Launch rmmz games
+      portablemc # Console minecraft launcher
     ];
   };
 }
