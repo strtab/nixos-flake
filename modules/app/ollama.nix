@@ -6,10 +6,24 @@
   ...
 }:
 let
-  cfg = config.modules.local-llm;
+  cfg = config.modules.ollama;
+
+  # Succeeds only when CUDA is really usable, not just when device nodes exist
+  waitForGpu = pkgs.writeShellScript "ollama-wait-nvidia" ''
+    for i in $(seq 1 90); do
+      if [ -e /dev/nvidiactl ] \
+        && [ -e /dev/nvidia-uvm ] \
+        && ${config.hardware.nvidia.package.bin}/bin/nvidia-smi -L >/dev/null 2>&1; then
+        exit 0
+      fi
+      sleep 2
+    done
+    echo "NVIDIA GPU is not ready" >&2
+    exit 1
+  '';
 in
 {
-  options.modules.local-llm = {
+  options.modules.ollama = {
     enable = lib.mkEnableOption "Whether to enable ollama server and claude-code for local large language models.";
     package = lib.mkOption {
       type = lib.types.package;
@@ -18,7 +32,7 @@ in
     };
     contextLength = lib.mkOption {
       type = lib.types.str;
-      default = "64000";
+      default = "128000";
     };
     defaultModel = lib.mkOption {
       type = lib.types.str;
@@ -40,8 +54,7 @@ in
       "llm" = "ollama launch claude --model ${cfg.defaultModel}";
       "llmlite" =
         "ollama launch claude --model ${cfg.defaultModel} -- --tools \"Read,Edit,Write,Bash,Grep,Glob,AskUserQuestion,WebFetch,WebSearch\" --no-chrome ";
-      "llmlight" =
-        "ollama launch claude --model ${cfg.defaultModel} -- --tools \"Read,Edit,Write,Bash,Grep,Glob,AskUserQuestion,WebFetch,WebSearch\" --no-chrome ";
+      "llmlight" = "llmlite";
     };
 
     environment.sessionVariables = {
@@ -52,9 +65,18 @@ in
 
     environment.systemPackages = with pkgs-unstable; [ claude-code ];
 
-    systemd.services.ollama.serviceConfig.ExecStartPre = lib.mkIf cfg.waitForNvidiaGpu [
-      "${pkgs.bash}/bin/bash -c 'for i in $(seq 1 60); do [ -e /dev/nvidia0 ] && [ -e /dev/nvidiactl ] && exit 0; sleep 1; done; exit 1'"
-    ];
+    systemd.services.ollama = lib.mkIf cfg.waitForNvidiaGpu {
+      after = [
+        "systemd-modules-load.service"
+        "nvidia-persistenced.service"
+      ];
+      wants = [ "nvidia-persistenced.service" ];
+      serviceConfig = {
+        # Default 90s is shorter than the wait loop, the unit would be killed
+        TimeoutStartSec = "240";
+        ExecStartPre = [ "${waitForGpu}" ];
+      };
+    };
 
     services.ollama = {
       enable = true;

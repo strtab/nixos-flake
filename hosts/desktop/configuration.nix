@@ -20,7 +20,7 @@
       useSecrets = true;
       enable = true;
     };
-    local-llm = {
+    ollama = {
       waitForNvidiaGpu = true;
       package = pkgs-master.ollama-cuda.override {
         cudaPackages = pkgs-master.cudaPackages_12;
