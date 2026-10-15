@@ -39,6 +39,9 @@
       "boot.shell_on_fail" # drop to shell on boot failure
       "nosoftlockup" # disable soft lockup detector
 
+      "usbcore.autosuspend=-1"
+      "usbcore.old_scheme_first=1"
+
       "skew_tick=1" # enable skewed ticks
       "preempt=full" # enable full preemption (low latency)
 
