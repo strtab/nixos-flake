@@ -48,7 +48,6 @@ in
     };
 
     qt.enable = true;
-    programs.xwayland.enable = true;
     environment.systemPackages =
       with pkgs;
       [
@@ -78,6 +77,9 @@ in
           });
         in
         [
+          pkgs.gtk3
+          pkgs.gtk4
+
           # Hack? To make everything run on Wayland
           qtwayland
           qtsvg # Needed to render SVG icons
@@ -164,58 +166,35 @@ in
         ]
       );
 
-    environment.sessionVariables.XDG_CONFIG_DIRS = [ "$HOME/.config/kdedefaults" ];
-    environment.sessionVariables.KPACKAGE_DEP_RESOLVERS_PATH = "${pkgs.kdePackages.frameworkintegration.out}/libexec/kf6/kpackagehandlers";
+    environment.sessionVariables = {
+      XDG_CONFIG_DIRS = [ "$HOME/.config/kdedefaults" ];
+      KPACKAGE_DEP_RESOLVERS_PATH = "${pkgs.kdePackages.frameworkintegration.out}/libexec/kf6/kpackagehandlers";
+    };
 
-    # Enable GTK applications to load SVG icons
-    programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+    programs = {
+      # Enable GTK applications to load SVG icons
+      gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+      gnupg.agent.pinentryPackage = lib.mkDefault pkgs.pinentry-qt;
+      ssh.askPassword = lib.mkDefault "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+      xwayland.enable = true;
+      kde-pim.enable = true;
+      dconf.enable = true;
+    };
 
-    programs.gnupg.agent.pinentryPackage = lib.mkDefault pkgs.pinentry-qt;
-    programs.kde-pim.enable = true;
-    programs.ssh.askPassword = lib.mkDefault "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
-
-    services.libinput.enable = lib.mkDefault true;
-    services.fwupd.enable = lib.mkDefault true;
-    services.system-config-printer.enable = lib.mkIf config.services.printing.enable (
-      lib.mkDefault true
-    );
-
-    services.udev.packages = [
-      pkgs.libmtp.out
-      pkgs.media-player-info
-    ];
+    services = {
+      pipewire.enable = lib.mkDefault true;
+      libinput.enable = lib.mkDefault true;
+      fwupd.enable = lib.mkDefault true;
+      gvfs.enable = lib.mkDefault true; # trash:// suppport
+      system-config-printer.enable = lib.mkIf config.services.printing.enable (lib.mkDefault true);
+      udev.packages = [
+        pkgs.libmtp.out
+        pkgs.media-player-info
+      ];
+    };
 
     # Set up Dr. Konqi as crash handler
     systemd.packages = [ pkgs.kdePackages.drkonqi ];
     systemd.services."drkonqi-coredump-processor@".wantedBy = [ "systemd-coredump@.service" ];
-
-    services.pipewire.enable = lib.mkDefault true;
-
-    # security.pam.services = {
-    #   login.kwallet = {
-    #     enable = true;
-    #     package = pkgs.kdePackages.kwallet-pam;
-    #   };
-    #   kde = {
-    #     allowNullPassword = true;
-    #     kwallet = {
-    #       enable = true;
-    #       package = pkgs.kdePackages.kwallet-pam;
-    #     };
-    #     # "kde" must not have fingerprint authentication otherwise it can block password login.
-    #     # See https://github.com/NixOS/nixpkgs/issues/239770 and https://invent.kde.org/plasma/kscreenlocker/-/merge_requests/163.
-    #     fprintAuth = false;
-    #     p11Auth = false;
-    #   };
-    #   kde-fingerprint = lib.mkIf config.services.fprintd.enable {
-    #     fprintAuth = true;
-    #     p11Auth = false;
-    #   };
-    #   kde-smartcard = lib.mkIf config.security.pam.p11.enable {
-    #     p11Auth = true;
-    #     fprintAuth = false;
-    #   };
-    # };
-    programs.dconf.enable = true;
   };
 }
