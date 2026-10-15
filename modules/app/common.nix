@@ -29,6 +29,18 @@ in
       };
     };
 
+    systemd.services.warm-dm = {
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig.Type = "simple";
+      path = [ pkgs.vmtouch ];
+      script = ''
+        vmtouch -t /home/${config.var.username}/.config/quickshell/aether
+        vmtouch -t /home/${config.var.username}/.local/state/quickshell
+        vmtouch -t /home/${config.var.username}/.cache/quickshell
+        vmtouch -t /home/${config.var.username}/.config/hypr
+      '';
+    };
+
     environment.sessionVariables = {
       XDG_DATA_DIRS = [
         "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
