@@ -12,6 +12,7 @@
     "ku" = "kubectl";
     "ec" = "echo \"$?\"";
     "sduo" = "sudo";
+    "noproxy" = "SOCKS_SERVER=\"\" https_proxy=\"\" http_proxy=\"\" all_proxy=\"\"";
     "clean" = "sudo sync; sudo journalctl --rotate --vacuum-size=10M; nh clean all --keep 3 --optimise";
   };
 }
