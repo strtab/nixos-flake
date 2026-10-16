@@ -12,6 +12,7 @@
 
   modules = {
     virt-manager.enable = true;
+    packettracer.enable = true;
     common.enable = true;
     office.enable = true;
     games.enable = true;
