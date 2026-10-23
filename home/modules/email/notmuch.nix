@@ -15,8 +15,7 @@
     sessionVariables.NOTMUCH_CONFIG = lib.mkForce "${config.xdg.configHome}/notmuch.conf";
 
     file."${config.xdg.configHome}/notmuch.conf".enable = false;
-    activation.linkNotmuchConfig = config.lib.dag.entryAfter [ "reloadSystemd" ] ''
-      env XDG_RUNTIME_DIR="$\{XDG_RUNTIME_DIR:-/run/user/$(id -u)}" \
+    activation.linkNotmuchConfig = config.lib.dag.entryAfter [ "setXdgRuntimeDir" ] ''
       ln -sf "${config.age.secrets.notmuch.path}" "${config.xdg.configHome}/notmuch.conf"
       chmod 600 "${config.xdg.configHome}/notmuch.conf" 2>/dev/null || true
     '';

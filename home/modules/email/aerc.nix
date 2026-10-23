@@ -254,9 +254,8 @@
   '';
 
   home.file."${config.xdg.configHome}/aerc/accounts.conf".enable = false;
-  home.activation.linkAercConfig = config.lib.dag.entryAfter [ "reloadSystemd" ] ''
+  home.activation.linkAercConfig = config.lib.dag.entryAfter [ "setXdgRuntimeDir" ] ''
     mkdir -p "${config.xdg.configHome}/aerc"
-    env XDG_RUNTIME_DIR="$\{XDG_RUNTIME_DIR:-/run/user/$(id -u)}" \
     ln -sf "${config.age.secrets.aerc-accounts.path}" "${config.xdg.configHome}/aerc/accounts.conf"
     chmod 600 "${config.xdg.configHome}/aerc/accounts.conf" 2>/dev/null || true
   '';
