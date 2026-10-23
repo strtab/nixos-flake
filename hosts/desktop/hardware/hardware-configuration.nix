@@ -29,9 +29,26 @@
     device = "/dev/disk/by-uuid/bc980c10-7385-48ad-8040-cb251fde73c5";
     fsType = "ext4";
     options = [
-      "allow_other"
       "nofail"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=100"
+      "x-systemd.mount-timeout=15"
     ];
+  };
+
+  systemd.services.chmod-mnt-sdb = {
+    description = "Set permissions for /mnt/sdb to allow all users access";
+    after = [ "mnt-sdb.mount" ];
+    requires = [ "mnt-sdb.mount" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+    script = ''
+      chown root:users /mnt/sdb
+      chmod 775 /mnt/sdb
+    '';
   };
 
   environment.systemPackages = [ pkgs.sshfs ];
