@@ -16,6 +16,7 @@
     common.enable = true;
     office.enable = true;
     games.enable = true;
+    wine.enable = true;
     vial.enable = true;
     hysteria = {
       useSecrets = true;
