@@ -2,9 +2,12 @@
 {
   xdg = {
     enable = true;
-    autostart.enable = true;
-    autostart.readOnly = true;
     terminal-exec.enable = true;
+    terminal-exec.settings = {
+      default = [
+        "kitty.desktop"
+      ];
+    };
     userDirs = {
       enable = true;
       createDirectories = true;
