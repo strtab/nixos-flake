@@ -20,7 +20,7 @@
     hagezi_piracy.flake = false;
 
     # Browser
-    helium.url = "github:amaanq/helium-flake/0bf1ab5b25bb9ca10ea21b3124825f89da520c5d"; # v0.17.1.1
+    helium.url = "github:amaanq/helium-flake";
     helium.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprland
