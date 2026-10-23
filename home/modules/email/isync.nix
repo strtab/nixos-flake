@@ -10,6 +10,7 @@
   home.packages = with pkgs; [ isync ];
   home.file."${config.xdg.configHome}/isyncrc".enable = lib.mkForce false;
   home.activation.linkIsyncConfig = config.lib.dag.entryAfter [ "reloadSystemd" ] ''
+    env XDG_RUNTIME_DIR="$\{XDG_RUNTIME_DIR:-/run/user/$(id -u)}" \
     ln -sf "${config.age.secrets.isyncrc.path}" "${config.xdg.configHome}/isyncrc"
     chmod 600 "${config.xdg.configHome}/isyncrc" 2>/dev/null || true
   '';

@@ -22,6 +22,7 @@
   home.file."${config.xdg.configHome}/goimapnotify/goimapnotify.yaml".enable = lib.mkForce false;
   home.activation.linkGoimapnotifyConfig = config.lib.dag.entryAfter [ "reloadSystemd" ] ''
     mkdir -p "${config.xdg.configHome}/goimapnotify"
+    env XDG_RUNTIME_DIR="$\{XDG_RUNTIME_DIR:-/run/user/$(id -u)}" \
     ln -sf "${config.age.secrets.goimapnotify.path}" "${config.xdg.configHome}/goimapnotify/goimapnotify.yaml"
     chmod 600 "${config.xdg.configHome}/isyncrc" 2>/dev/null || true
   '';
