@@ -77,6 +77,16 @@
       bind 9 select-window -t 9
       bind 0 select-window -t 0
 
+      bind -n S-1 join-pane -t :1
+      bind -n S-2 join-pane -t :2
+      bind -n S-3 join-pane -t :3
+      bind -n S-4 join-pane -t :4
+      bind -n S-5 join-pane -t :5
+      bind -n S-6 join-pane -t :6
+      bind -n S-7 join-pane -t :7
+      bind -n S-8 join-pane -t :8
+      bind -n S-9 join-pane -t :9
+
       bind ^s split-window -v -c "#{pane_current_path}"
       bind s split-window -v -c "#{pane_current_path}"
       bind ^v split-window -h -c "#{pane_current_path}"
