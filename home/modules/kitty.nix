@@ -2,15 +2,12 @@
 {
   home.packages = with pkgs; [
     nerd-fonts.symbols-only
-    nerd-fonts.jetbrains-mono
   ];
   programs.kitty = {
     enable = true;
     font = {
-      # name = "family='Google Sans Code' variable_name=GoogleSansCode wght=440 MONO=1";
-      # package = pkgs.googlesans-code;
-      name = "family='GeistMono Nerd Font'";
-      package = pkgs.nerd-fonts.geist-mono;
+      name = "family='Inter'";
+      package = pkgs.inter;
     };
     shellIntegration.enableZshIntegration = true;
     shellIntegration.mode = "no-cursor";
@@ -23,7 +20,6 @@
       cursor_shape = "block";
       cursor_trail = 0;
       cursor_stop_blinking_after = 0;
-      symbol_map = "U+23 JetBraindMonoNL Nerd Font";
       allow_hyperlinks = true;
       underline_hyperlinks = "always";
       show_hyprlink_target_on_hover = true;
@@ -42,42 +38,30 @@
   home.file."${config.xdg.configHome}/kitty/dark-theme.auto.conf".text = ''
     # vim:ft=kitty
 
-    foreground                      #bcb7aa
-    background                      #050505
+    foreground              #cecdc3
+    background              #000000
+    selection_foreground    #FFFCF0
+    selection_background    #403E3C
+    url_color               #CE5D97
 
-    url_color                       #72a7bc
-
-    active_tab_foreground           #c8c093
-    active_tab_background           #131313
-    inactive_tab_foreground         #727169
-    inactive_tab_background         #131313
-
-    color0  #16161d
-    color8  #727169
-
-    color1  #c34043
-    color9  #e82424
-
-    color2  #76946a
-    color10 #98bb6c
-
-    color3  #c0a36e
-    color11 #e6c384
-
-    color4  #859fac
-    color12 #859fac
-
-    color5  #957fb8
-    color13 #938aa9
-
-    color6  #6a9589
-    color14 #7aa89f
-
-    color7  #c8c093
-    color15 #dcd7ba
-
-    color16 #ffa066
-    color17 #ff5d62
+    color0  #100F0F
+    color8  #6F6E69
+    color1  #D14D41
+    color9  #D14D41
+    color2  #879A39
+    color10 #879A39
+    color3  #D0A215
+    color11 #D0A215
+    color4  #859fba
+    color12 #859fba
+    color5  #CE5D97
+    color13 #CE5D97
+    color6  #458588
+    color14 #458588
+    color7  #F2F0E5
+    color15 #FFFCF0
+    color16 #DA702C
+    color17 #DA702C
   '';
   home.file."${config.xdg.configHome}/kitty/light-theme.auto.conf".text = ''
     # vim:ft=kitty
