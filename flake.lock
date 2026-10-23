@@ -178,7 +178,7 @@
     "hagezi_piracy": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-2PnFujs+x+A1kGwaDtoMyu/DJwCCRZtop7W7XJtysKo=",
+        "narHash": "sha256-OHOxeg7UnJrm+mzBZgj88S2Y+PfemJUBBYBp6SnJJbE=",
         "type": "file",
         "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/anti.piracy-onlydomains.txt"
       },
@@ -190,7 +190,7 @@
     "hagezi_pro": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-3biAWXRwWnZqsmpSg4pHuw5I/SepjHRoHeFl3Efq5p8=",
+        "narHash": "sha256-QpcAdLs7F25oD1l9SAPd12zItkFlWye561r//lixFNg=",
         "type": "file",
         "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/pro.plus-onlydomains.txt"
       },
@@ -996,11 +996,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1792674051,
-        "narHash": "sha256-K+GUCnjSc4ZRy8i/HJrHRNQr18S/Vf46JMygUMPoOjk=",
+        "lastModified": 1792765276,
+        "narHash": "sha256-4/5g2Lb7UGJ94Z7Mxf6P/qxYyX4JPA0KOP0uss/upBE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9383f6adb67353305a158742eef66b9607df512a",
+        "rev": "7b0a85e43cca43f13deace821d3c1c22ee28403d",
         "type": "github"
       },
       "original": {
