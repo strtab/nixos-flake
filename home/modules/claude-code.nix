@@ -33,6 +33,7 @@ in
         command = "${configDir}/statusline.sh";
         padding = 0;
       };
+      effort = "auto";
       theme = "dark-ansi";
       editorMode = "normal";
       preferredNotifChannel = "auto";
