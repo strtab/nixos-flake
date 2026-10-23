@@ -21,5 +21,14 @@ in
         wineWow64Packages.waylandFull
       ];
     };
+    system.activationScripts.init-wineprefix = {
+      text = ''
+        if [ ! -d "/var/lib/wine" ]; then
+          export WINEPREFIX="/var/lib/wine"
+          export WINEARCH="win64"
+          ${pkgs-unstable.wineWow64Packages.stable}/bin/wineboot -u
+        fi
+      '';
+    };
   };
 }
