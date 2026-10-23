@@ -25,6 +25,19 @@
     fsType = "f2fs";
   };
 
+  fileSystems."/mnt/sdb" = {
+    device = "/dev/disk/by-uuid/bc980c10-7385-48ad-8040-cb251fde73c5";
+    fsType = "ext4";
+    options = [
+      "allow_other"
+      "nofail"
+      "follow_symlinks"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "x-systemd.mount-timeout=15"
+    ];
+  };
+
   environment.systemPackages = [ pkgs.sshfs ];
   fileSystems."/mnt/homelab" = {
     device = "user@homelab.lan:/mnt/raid1/share";
