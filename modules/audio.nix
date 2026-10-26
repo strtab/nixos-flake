@@ -1,4 +1,3 @@
-# Audio configuration for NixOS using PipeWire
 { pkgs, ... }:
 {
   security.rtkit.enable = true;
@@ -12,13 +11,14 @@
     jack.enable = true;
     wireplumber = {
       enable = true;
-      # extraConfig = {
-      #   "10-disable-camera" = {
-      #     "wireplumber.profiles" = {
-      #       main."monitor.libcamera" = "disabled";
-      #     };
-      #   };
-      # };
+      extraConfig = {
+        # Do not tear down BlueZ devices when the logind seat becomes inactive
+        "51-bluez-no-seat" = {
+          "wireplumber.profiles" = {
+            main."monitor.bluez.seat-monitoring" = "disabled";
+          };
+        };
+      };
     };
   };
   # Enable GStreamer and the PipeWire/PulseAudio sink plugins system-wide

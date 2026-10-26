@@ -8,6 +8,7 @@ in
     defaultUserShell = pkgs.zsh;
 
     users.${username} = {
+      linger = true;
       isNormalUser = true;
       description = "${username} account";
       extraGroups = [
