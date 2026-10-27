@@ -55,6 +55,8 @@ in
         zathura # Pdf viewer
         nomacs # Image viewer
         haruna # Video viewer
+        inkscape # svg editor
+        telegram-desktop
 
         helium
 
@@ -77,9 +79,6 @@ in
           });
         in
         [
-          pkgs.gtk3
-          pkgs.gtk4
-
           # Hack? To make everything run on Wayland
           qtwayland
           qtsvg # Needed to render SVG icons
