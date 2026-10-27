@@ -20,6 +20,7 @@
       set -g set-clipboard on 
       set -g focus-events on
       setw -g mode-keys vi
+      set -g mouse on
 
       set -g mode-style "fg=black,bg=white"
 
