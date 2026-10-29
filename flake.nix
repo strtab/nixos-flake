@@ -30,6 +30,9 @@
     # hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors/da447486c84e0be81f2cdd208af1ef92469f0a88";
     # hypr-dynamic-cursors.inputs.hyprland.follows = "hyprland";
 
+    jakubkrehel-skills.url = "github:jakubkrehel/skills";
+    jakubkrehel-skills.flake = false;
+
     # Kde Theme
     geist.url = "github:strtab/Plasma-Geist-visual-style";
     geist.flake = false;

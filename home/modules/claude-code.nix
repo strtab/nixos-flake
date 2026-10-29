@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, inputs, ... }:
 let
   configDir = "${config.xdg.configHome}/claude";
 in
@@ -16,6 +16,7 @@ in
   programs.claude-code = {
     enable = true;
     configDir = configDir;
+    skills = "${inputs.jakubkrehel-skills}/skills";
     settings = {
       permissions = {
         allow = [
