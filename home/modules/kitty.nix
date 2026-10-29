@@ -34,8 +34,11 @@
       "ctrl+0" = "change_font_size all 0";
       "ctrl+kp_0" = "change_font_size all 0";
     };
+    extraConfig = ''
+    include theme.conf
+    '';
   };
-  home.file."${config.xdg.configHome}/kitty/dark-theme.auto.conf".text = ''
+  home.file."${config.xdg.configHome}/kitty/theme.conf".text = ''
     # vim:ft=kitty
 
     foreground              #cecdc3
@@ -52,42 +55,15 @@
     color10 #879A39
     color3  #D0A215
     color11 #D0A215
-    color4  #859fba
-    color12 #859fba
+    color4  #606060
+    color12 #606060
     color5  #CE5D97
     color13 #CE5D97
-    color6  #458588
-    color14 #458588
+    color6  #ADBD60
+    color14 #ADBD60
     color7  #F2F0E5
     color15 #FFFCF0
     color16 #DA702C
     color17 #DA702C
-  '';
-  home.file."${config.xdg.configHome}/kitty/light-theme.auto.conf".text = ''
-    # vim:ft=kitty
-
-    background #fcfcfc
-    foreground #111111
-
-    cursor  #e8dffd
-    selection_background #e8dffd
-    selection_foreground #ffffff
-
-    color0  #100F0F
-    color8  #6F6E69
-    color1  #D14D41
-    color9  #AF3029
-    color2  #879A39
-    color10 #66800B
-    color3  #D0A215
-    color11 #AD8301
-    color4  #4385BE
-    color12 #205EA6
-    color5  #CE5D97
-    color13 #A02F6F
-    color6  #3AA99F
-    color14 #24837B
-    color7  #FFFCF0
-    color15 #F2F0E5
   '';
 }
