@@ -27,8 +27,6 @@
     hyprland.url = "github:hyprwm/Hyprland?ref=v0.56.1";
     hyblock.url = "github:strtab/hyblock?ref=v0.56.1";
     hyblock.inputs.hyprland.follows = "hyprland";
-    # hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors/da447486c84e0be81f2cdd208af1ef92469f0a88";
-    # hypr-dynamic-cursors.inputs.hyprland.follows = "hyprland";
 
     jakubkrehel-skills.url = "github:jakubkrehel/skills";
     jakubkrehel-skills.flake = false;
