@@ -9,6 +9,8 @@
   config = lib.mkIf config.modules.games.enable {
     programs = {
       steam.enable = true;
+      gamemode.enable = true;
+      gamescope.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
