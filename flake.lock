@@ -958,6 +958,22 @@
         "type": "github"
       }
     },
+    "jakubkrehel-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792934776,
+        "narHash": "sha256-FMU9evyJOFx4NsAN1flSGSUmbkKbkK17dZGi5RPceig=",
+        "owner": "jakubkrehel",
+        "repo": "skills",
+        "rev": "592aedc44d7d5b3e29740984252902f3e5402a1c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jakubkrehel",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -1152,6 +1168,7 @@
         "hyblock": "hyblock",
         "hyprland": "hyprland_2",
         "import-tree": "import-tree",
+        "jakubkrehel-skills": "jakubkrehel-skills",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-master": "nixpkgs-master",
