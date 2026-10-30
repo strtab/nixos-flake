@@ -1,4 +1,9 @@
-{ config, inputs, pkgs-master, ... }:
+{
+  config,
+  inputs,
+  pkgs-master,
+  ...
+}:
 {
   imports = [
     (inputs.import-tree "${inputs.self}/modules")
@@ -26,6 +31,22 @@
       package = pkgs-master.ollama-cuda.override {
         cudaPackages = pkgs-master.cudaPackages_12;
         cudaArches = [ "61" ];
+      };
+      customModels."qwen-coder-autocomplete" = {
+        from = "qwen2.5-coder:7b-base";
+        parameters = {
+          temperature = 0.1;
+          top_p = 0.9;
+          num_ctx = 4096;
+          num_predict = 128;
+          stop = [
+            "<|fim_prefix|>"
+            "<|fim_suffix|>"
+            "<|fim_middle|>"
+            "<|file_sep|>"
+            "<|endoftext|>"
+          ];
+        };
       };
       enable = true;
     };
