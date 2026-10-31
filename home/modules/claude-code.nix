@@ -16,7 +16,10 @@ in
   programs.claude-code = {
     enable = true;
     configDir = configDir;
-    skills = "${inputs.jakubkrehel-skills}/skills";
+    skills = {
+      obsidian-skills = "${inputs.obsidian-skills}/skills";
+      jakubkrehel-skills = "${inputs.jakubkrehel-skills}/skills";
+    };
     settings = {
       permissions = {
         allow = [

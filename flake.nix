@@ -30,6 +30,8 @@
 
     jakubkrehel-skills.url = "github:jakubkrehel/skills";
     jakubkrehel-skills.flake = false;
+    obsidian-skills.url = "github:kepano/obsidian-skills";
+    obsidian-skills.flake = false;
 
     # Kde Theme
     geist.url = "github:strtab/Plasma-Geist-visual-style";

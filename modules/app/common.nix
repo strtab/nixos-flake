@@ -193,7 +193,7 @@ in
     };
 
     # Set up Dr. Konqi as crash handler
-    systemd.packages = [ pkgs.kdePackages.drkonqi ];
-    systemd.services."drkonqi-coredump-processor@".wantedBy = [ "systemd-coredump@.service" ];
+    # systemd.packages = [ pkgs.kdePackages.drkonqi ];
+    # systemd.services."drkonqi-coredump-processor@".wantedBy = [ "systemd-coredump@.service" ];
   };
 }

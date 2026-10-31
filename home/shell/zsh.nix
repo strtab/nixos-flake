@@ -27,7 +27,6 @@
     };
     initContent = ''
       PROMPT='%n@%m %1~ %# '
-      TERM=xterm-256color
 
       # Emacs keybinds
       bindkey -e

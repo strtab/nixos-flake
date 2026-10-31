@@ -37,7 +37,6 @@
       "quiet"
       "rd.udev.log_level=3"
       "rd.systemd.show_status=auto"
-      "vt.global_cursor_default=0" # hide cursor on boot
       "loglevel=3"
 
       "boot.shell_on_fail" # drop to shell on boot failure
