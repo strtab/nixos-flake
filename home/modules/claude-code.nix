@@ -1,6 +1,21 @@
-{ config, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   configDir = "${config.xdg.configHome}/claude";
+
+  # Merge several skill directories into one store path:
+  # <store>/<skill-name>/SKILL.md
+  allSkills = pkgs.symlinkJoin {
+    name = "claude-skills";
+    paths = [
+      "${inputs.obsidian-skills}/skills"
+      "${inputs.jakubkrehel-skills}/skills"
+    ];
+  };
 in
 {
   home.sessionVariables = {
@@ -16,10 +31,7 @@ in
   programs.claude-code = {
     enable = true;
     configDir = configDir;
-    skills = {
-      obsidian-skills = "${inputs.obsidian-skills}/skills";
-      jakubkrehel-skills = "${inputs.jakubkrehel-skills}/skills";
-    };
+    skills = "${allSkills}";
     settings = {
       permissions = {
         allow = [
