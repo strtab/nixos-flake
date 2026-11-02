@@ -5,6 +5,7 @@ in
 {
   programs.obsidian = {
     enable = true;
+    cli.enable = true;
   };
   home.shellAliases = {
     notes = "nvim --cmd 'cd ${obsidianPath}/notes'";
