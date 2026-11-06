@@ -33,7 +33,6 @@
 # '';
 
 {
-  pkgs-unstable,
   config,
   pkgs,
   lib,
@@ -173,21 +172,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.shellAliases = {
-      "llm" = "ollama launch claude --model ${cfg.defaultModel}";
-      "llmlite" =
-        "ollama launch claude --model ${cfg.defaultModel} -- --tools \"Read,Edit,Write,Bash,Grep,Glob,AskUserQuestion,WebFetch,WebSearch\" --no-chrome ";
-      "llmlight" = "llmlite";
-    };
-
-    environment.sessionVariables = {
-      CLAUDE_CODE_MAX_CONTEXT_TOKENS = cfg.contextLength;
-      CLAUDE_CODE_MAX_OUTPUT_TOKENS = "64000";
-      CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT = "1";
-    };
-
-    environment.systemPackages = with pkgs-unstable; [ claude-code ];
-
     systemd.services.ollama = lib.mkIf cfg.waitForNvidiaGpu {
       after = [
         "systemd-modules-load.service"
