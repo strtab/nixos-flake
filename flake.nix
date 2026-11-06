@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     import-tree.url = "github:denful/import-tree";
@@ -44,7 +43,6 @@
   outputs =
     inputs@{
       nixpkgs,
-      nixpkgs-master,
       nixpkgs-unstable,
       import-tree,
       ...
@@ -52,10 +50,6 @@
     let
       system = "x86_64-linux";
       pkgs-unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      pkgs-master = import nixpkgs-master {
         inherit system;
         config.allowUnfree = true;
       };
@@ -69,7 +63,6 @@
             nixpkgs
             system
             pkgs-unstable
-            pkgs-master
             ;
         };
         modules = [
