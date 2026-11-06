@@ -2,21 +2,32 @@
 # Usage
 # ---------------------------------------------------------------
 #
-# modules.ollama.customModels."qwen-coder-autocomplete" = {
-#   from = "qwen2.5-coder:7b-base";
-#   parameters = {
-#     temperature = 0.1;
-#     top_p = 0.9;
-#     num_ctx = 4096;
-#     num_predict = 128;
-#     stop = [
-#       "<|fim_prefix|>"
-#       "<|fim_suffix|>"
-#       "<|fim_middle|>"
-#       "<|file_sep|>"
-#       "<|endoftext|>"
-#     ];
+# ollama = {
+#   waitForNvidiaGpu = true;
+#   package = pkgs-unstable.ollama-cuda.override {
+#     cudaPackages = pkgs-unstable.cudaPackages_12;
+#     cudaArches = [ "61" ];
 #   };
+#   loadModels = [
+#     "fredrezones55/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive:q4"
+#   ];
+#   customModels."qwen-coder-autocomplete" = {
+#     from = "qwen2.5-coder:7b-base";
+#     parameters = {
+#       temperature = 0.1;
+#       top_p = 0.9;
+#       num_ctx = 4096;
+#       num_predict = 128;
+#       stop = [
+#         "<|fim_prefix|>"
+#         "<|fim_suffix|>"
+#         "<|fim_middle|>"
+#         "<|file_sep|>"
+#         "<|endoftext|>"
+#       ];
+#     };
+#   };
+#   enable = true;
 # };
 #
 # modules.ollama.customModels."qwen-agent" = {
@@ -77,7 +88,7 @@ let
 in
 {
   options.modules.ollama = {
-    enable = lib.mkEnableOption "Whether to enable ollama server and claude-code for local large language models.";
+    enable = lib.mkEnableOption "Whether to enable ollama server.";
     package = lib.mkOption {
       type = lib.types.package;
       default = pkgs.ollama;
@@ -86,6 +97,23 @@ in
     contextLength = lib.mkOption {
       type = lib.types.str;
       default = "128000";
+    };
+    loadModels = lib.mkOption {
+      type = lib.type.listOf lib.type.str;
+      apply = builtins.filter (model: model != "");
+      default = [ ];
+      example = [
+        "dolphin3"
+        "gemma3"
+      ];
+      description = ''
+        Download these models using `ollama pull` as soon as `ollama.service` has started.
+
+        This creates a systemd unit `ollama-model-loader.service`.
+        Use `services.ollama.syncModels` to automatically remove any models not currently declared here.
+
+        Search for models of your choice from: <https://ollama.com/library>
+      '';
     };
     defaultModel = lib.mkOption {
       type = lib.types.str;
@@ -240,10 +268,7 @@ in
         OLLAMA_KEEP_ALIVE = cfg.keepAlive;
         OLLAMA_NO_CLOUD = "1";
       };
-      # Do NOT list custom models or their FROM models here: `ollama create` pulls FROM itself
-      loadModels = [
-        cfg.defaultModel
-      ];
+      loadModels = cfg.loadModels;
     };
   };
 }

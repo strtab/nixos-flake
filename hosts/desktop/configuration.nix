@@ -1,9 +1,21 @@
 {
   config,
   inputs,
-  pkgs-master,
+  pkgs-unstable,
   ...
 }:
+let
+  llama-cpp-pascal =
+    (pkgs-unstable.llama-cpp.override {
+      cudaSupport = true;
+      # CUDA 13 dropped Pascal (sm_61), so pin the CUDA 12 toolchain
+      cudaPackages = pkgs-unstable.cudaPackages_12;
+    }).overrideAttrs
+      (old: {
+        # Build kernels for GTX 1080 only (compute capability 6.1); the last flag wins
+        cmakeFlags = (old.cmakeFlags or [ ]) ++ [ "-DCMAKE_CUDA_ARCHITECTURES=61" ];
+      });
+in
 {
   imports = [
     (inputs.import-tree "${inputs.self}/modules")
@@ -24,29 +36,32 @@
       useSecrets = true;
       enable = true;
     };
-    ollama = {
-      waitForNvidiaGpu = true;
-      package = pkgs-master.ollama-cuda.override {
-        cudaPackages = pkgs-master.cudaPackages_12;
-        cudaArches = [ "61" ];
-      };
-      customModels."qwen-coder-autocomplete" = {
-        from = "qwen2.5-coder:7b-base";
-        parameters = {
-          temperature = 0.1;
-          top_p = 0.9;
-          num_ctx = 4096;
-          num_predict = 128;
-          stop = [
-            "<|fim_prefix|>"
-            "<|fim_suffix|>"
-            "<|fim_middle|>"
-            "<|file_sep|>"
-            "<|endoftext|>"
-          ];
+    llama-cpp = {
+      enable = true;
+      package = llama-cpp-pascal;
+      models = {
+        "qwen3.6" = {
+          hf = "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive";
+          file = "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q4_K_P.gguf";
+          mmproj = "mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf";
+          settings.n-cpu-moe = 40;
+        };
+        "qwen2.5" = {
+          hf = "QuantFactory/Qwen2.5-7B-Instruct-abliterated-v2-GGUF:Q4_K_M";
+        };
+        "qwen2.5-coder" = {
+          hf = "Qwen/Qwen2.5-Coder-7B-GGUF:Q4_K_M";
+        };
+        "qwen-coder-autocomplete" = {
+          hf = "Qwen/Qwen2.5-Coder-7B-GGUF:Q4_K_M";
+          settings = {
+            temp = 0.1;
+            top-p = 0.9;
+            ctx-size = 4096;
+            n-predict = 128;
+          };
         };
       };
-      enable = true;
     };
   };
 

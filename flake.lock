@@ -1010,22 +1010,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1792765276,
-        "narHash": "sha256-4/5g2Lb7UGJ94Z7Mxf6P/qxYyX4JPA0KOP0uss/upBE=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "7b0a85e43cca43f13deace821d3c1c22ee28403d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1792502884,
@@ -1187,7 +1171,6 @@
         "jakubkrehel-skills": "jakubkrehel-skills",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "obsidian-skills": "obsidian-skills"
       }

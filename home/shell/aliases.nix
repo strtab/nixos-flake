@@ -1,5 +1,6 @@
 {
   home.shellAliases = {
+    "sys" = "systemctl";
     ":q" = "exit";
     "v" = "nvim";
     "vi" = "nvim";
