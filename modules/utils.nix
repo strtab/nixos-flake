@@ -48,6 +48,7 @@ in
   environment.systemPackages = with pkgs; [
     ripgrep
     neovim
+    ranger
     tree
     open
     glib
