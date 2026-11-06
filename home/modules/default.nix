@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./claude-code.nix
     ./hyprland.nix
     ./obsidian.nix
     ./dolphin.nix
