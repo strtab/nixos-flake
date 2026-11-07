@@ -73,6 +73,7 @@ in
     ntfs3g
     exfat
     lsof
+    ncdu
 
     # media utils
     ffmpeg
