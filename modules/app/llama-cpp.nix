@@ -31,8 +31,6 @@ let
 
   # defaults for every model (override via `settings`)
   defaults = {
-    n-gpu-layers = "95";
-    ctx-size = "128000";
     flash-attn = "on";
     load-mode = "none";
   };

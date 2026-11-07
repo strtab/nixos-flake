@@ -40,26 +40,18 @@ in
       enable = true;
       package = llama-cpp-pascal;
       models = {
-        "qwen3.6" = {
+        "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive:Q4_K_P" = {
           hf = "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive";
           file = "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q4_K_P.gguf";
           mmproj = "mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf";
-          settings.n-cpu-moe = 40;
-        };
-        "qwen2.5" = {
-          hf = "QuantFactory/Qwen2.5-7B-Instruct-abliterated-v2-GGUF:Q4_K_M";
-        };
-        "qwen2.5-coder" = {
-          hf = "Qwen/Qwen2.5-Coder-7B-GGUF:Q4_K_M";
-        };
-        "qwen-coder-autocomplete" = {
-          hf = "Qwen/Qwen2.5-Coder-7B-GGUF:Q4_K_M";
           settings = {
-            temp = 0.1;
-            top-p = 0.9;
-            ctx-size = 4096;
-            n-predict = 128;
+            n-cpu-moe = 40;
+            n-gpu-layers = 95;
+            ctx-size = "128000";
           };
+        };
+        "QuantFactory/Qwen2.5-7B-Instruct-abliterated-v2-GGUF:Q4_K_M" = {
+          hf = "QuantFactory/Qwen2.5-7B-Instruct-abliterated-v2-GGUF:Q4_K_M";
         };
       };
     };
