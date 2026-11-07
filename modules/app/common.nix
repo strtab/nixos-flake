@@ -99,7 +99,7 @@ in
           kwalletmanager # provides KCMs and stuff
           solid # provides solid-hardware6 tool
           phonon-vlc # provides Phonon plugin
-          qtsvg # SVG icons render 
+          qtsvg # SVG icons render
           qtwayland
 
           # Core Plasma parts

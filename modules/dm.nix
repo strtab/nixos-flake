@@ -5,7 +5,7 @@ in
 {
   services.greetd = {
     enable = true;
-    
+
     settings = {
       initial_session = {
         command = session;

@@ -4,7 +4,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     import-tree.url = "github:denful/import-tree";
-    agenix.url = "github:ryantm/agenix"; 
+    agenix.url = "github:ryantm/agenix";
 
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";

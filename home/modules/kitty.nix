@@ -35,7 +35,7 @@
       "ctrl+kp_0" = "change_font_size all 0";
     };
     extraConfig = ''
-    include theme.conf
+      include theme.conf
     '';
   };
   home.file."${config.xdg.configHome}/kitty/theme.conf".text = ''
