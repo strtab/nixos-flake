@@ -79,10 +79,6 @@ in
           });
         in
         [
-          # Hack? To make everything run on Wayland
-          qtwayland
-          qtsvg # Needed to render SVG icons
-
           # Frameworks with globally loadable bits
           frameworkintegration # provides Qt plugin
           kcoreaddons # provides extra mime type info
@@ -103,13 +99,13 @@ in
           kwalletmanager # provides KCMs and stuff
           solid # provides solid-hardware6 tool
           phonon-vlc # provides Phonon plugin
+          qtsvg # SVG icons render 
+          qtwayland
 
           # Core Plasma parts
           kde-cli-tools
-          kwrited # wall message proxy, not to be confused with kwrite
           kdegraphics-thumbnailers # pdf etc thumbnailer
           polkit-kde-agent-1 # polkit auth ui
-          drkonqi # crash handler
 
           # Application integration
           libplasma # provides Kirigami platform theme
@@ -118,16 +114,11 @@ in
 
           # Artwork + themes
           geist
+          geist.qt5
+          plasma-integration.qt5
           pkgs.hicolor-icon-theme # fallback icons
           qqc2-breeze-style
           qqc2-desktop-style
-
-          # misc Plasma extras
-          kdeplasma-addons
-
-          # Plasma utilities
-          libksysguard
-          kcmutils
 
           (lib.getBin qttools) # Expose qdbus in PATH
           ark
@@ -138,16 +129,11 @@ in
           kconfig # required for xdg-terminal from xdg-utils
           qtbase # for qtpaths which is required for xdg-mime from xdg-utils
 
-          pkgs.openobex
-          pkgs.obexftp
+          qrca
           powerdevil
-          print-manager
           colord-kde
           plasma-thunderbolt
-          qrca
           qtsensors
-          geist.qt5
-          plasma-integration.qt5
           kwayland-integration
           (
             # Only symlink the KIO plugins, so we don't accidentally pull any services
