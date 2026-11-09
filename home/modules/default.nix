@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./qbittorrent.nix
     ./hyprland.nix
     ./obsidian.nix
     ./dolphin.nix
