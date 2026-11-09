@@ -22,11 +22,6 @@
     helium.url = "github:amaanq/helium-flake";
     helium.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Hyprland
-    hyprland.url = "github:hyprwm/Hyprland?ref=v0.56.1";
-    hyblock.url = "github:strtab/hyblock?ref=v0.56.1";
-    hyblock.inputs.hyprland.follows = "hyprland";
-
     jakubkrehel-skills.url = "github:jakubkrehel/skills";
     jakubkrehel-skills.flake = false;
     obsidian-skills.url = "github:kepano/obsidian-skills";
