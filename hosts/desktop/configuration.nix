@@ -52,6 +52,9 @@ in
         };
         "QuantFactory/Qwen2.5-7B-Instruct-abliterated-v2-GGUF:Q4_K_M" = {
           hf = "QuantFactory/Qwen2.5-7B-Instruct-abliterated-v2-GGUF:Q4_K_M";
+          settings = {
+            ctx-size = "12000";
+          };
         };
       };
     };
