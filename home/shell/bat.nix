@@ -1,6 +1,11 @@
 {
   programs.bat = {
     enable = true;
+    config = {
+      theme = "ansi";
+      italic-text = "never";
+      style = "changes";
+    };
   };
 
   home.sessionVariables = {
