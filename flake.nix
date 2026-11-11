@@ -31,6 +31,7 @@
 
     # Coding agent
     pi-hm.url = "github:strtab/pi-hm";
+    pi-hm.inputs.nixpkgs.follows = "nixpkgs";
 
     # Kde Theme
     geist.url = "github:strtab/Plasma-Geist-visual-style";
