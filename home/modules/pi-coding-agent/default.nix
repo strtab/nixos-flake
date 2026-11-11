@@ -51,6 +51,7 @@ in
       collapseChangelog = true;
       quietStartup = true;
       doubleEscapeAction = "tree";
+      defaultThinkingLevel = "medium";
       hideThinkingBlock = false;
       compaction.enabled = true;
       images.blockImages = false;
