@@ -2,6 +2,7 @@
 {
   imports = [
     ./qbittorrent.nix
+    ./pi-coding-agent
     ./hyprland.nix
     ./obsidian.nix
     ./dolphin.nix

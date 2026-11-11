@@ -22,6 +22,8 @@
       aerc-accounts.file = "${inputs.self}/secrets/mail/aerc-accounts.age";
       isyncrc.file = "${inputs.self}/secrets/mail/isyncrc.age";
       notmuch.file = "${inputs.self}/secrets/mail/notmuch.age";
+
+      pi-auth.file = "${inputs.self}/secrets/pi-auth.age";
     };
   };
 }

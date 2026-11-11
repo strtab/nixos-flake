@@ -26,6 +26,11 @@
     jakubkrehel-skills.flake = false;
     obsidian-skills.url = "github:kepano/obsidian-skills";
     obsidian-skills.flake = false;
+    ponytail-skills.url = "github:DietrichGebert/ponytail";
+    ponytail-skills.flake = false;
+
+    # Coding agent
+    pi-hm.url = "github:strtab/pi-hm";
 
     # Kde Theme
     geist.url = "github:strtab/Plasma-Geist-visual-style";
