@@ -13,6 +13,7 @@
     shellIntegration.mode = "no-cursor";
     enableGitIntegration = true;
     settings = {
+      italic_font = "none";
       enable_audio_bell = true;
       remember_window_size = false;
       confirm_os_window_close = 0;
