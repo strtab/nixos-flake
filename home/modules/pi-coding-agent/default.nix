@@ -44,7 +44,6 @@ in
     ];
 
     skills = allSkills;
-    models = ./models.json;
     keybindings = ./keybindings.json;
 
     settings = {
@@ -61,7 +60,7 @@ in
         showTerminalProgress = true;
       };
       theme = "claude-code-dark";
-      defaultProvider = "llama-cpp";
+      defaultProvider = "llama-server=http://127.0.0.1:9931";
       defaultModel = "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive:Q4_K_P";
       packages = [
         "git:github.com/strtab/pi-claude-code-ui"
