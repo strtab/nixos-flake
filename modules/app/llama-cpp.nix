@@ -60,7 +60,7 @@ in
 
     port = lib.mkOption {
       type = lib.types.port;
-      default = 11434;
+      default = 9931;
     };
 
     keepAlive = lib.mkOption {

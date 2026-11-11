@@ -41,7 +41,6 @@ in
       ./extensions/ask-user-question.ts
       ./extensions/prompt-snippets
       ./extensions/ddgr-search
-      ./extensions/clear.ts
     ];
 
     skills = allSkills;
@@ -67,8 +66,11 @@ in
       packages = [
         "git:github.com/strtab/pi-claude-code-ui"
         "npm:pi-prefix-cache-compaction"
+        "npm:@jetserge/pi-clear-hotkey"
         "npm:@juicesharp/rpiv-todo"
+        "npm:pi-llama-cpp"
         "npm:pi-guards"
+        "npm:pi-clear"
       ];
     };
 
