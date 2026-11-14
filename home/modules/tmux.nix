@@ -25,6 +25,8 @@
       set -g mode-style "fg=black,bg=white"
 
       set -g allow-passthrough on
+      set -g visual-activity off
+
       set -s extended-keys on
       set -g extended-keys-format csi-u
       set -as terminal-features 'xterm*:extkeys'
