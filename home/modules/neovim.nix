@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-unstable,
   lib,
   config,
   ...
@@ -13,12 +12,12 @@
     lua-language-server
     gopls # golang lsp
     nixfmt # nix formatter
-    nil # nix lsp
-    nixd
+    nixd # nix lsp
   ];
   programs.neovim = {
+    withRuby = false;
+    withPython3 = true;
     enable = true;
-    package = pkgs-unstable.neovim;
     sideloadInitLua = true;
     extraPackages = [
       pkgs.ueberzugpp

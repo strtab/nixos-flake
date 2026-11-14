@@ -47,7 +47,7 @@ in
 
   environment.systemPackages = with pkgs; [
     ripgrep
-    pkgs-unstable.neovim
+    neovim
     tree
     open
     glib
