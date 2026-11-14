@@ -122,7 +122,7 @@ in
       extraFlags = [
         "--ui"
         "--models-max"
-        "2"
+        "1"
       ]
       ++ lib.optionals (cfg.keepAlive != null) [
         "--sleep-idle-seconds"
