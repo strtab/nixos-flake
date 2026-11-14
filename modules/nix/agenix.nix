@@ -18,6 +18,19 @@
     ];
 
     secrets = {
+      borg-keyfile = {
+        file = "${inputs.self}/secrets/borgbackup/keyfile.age";
+        owner = "${config.var.username}";
+        group = "users";
+        mode = "0400";
+      };
+      borg-passphrase = {
+        file = "${inputs.self}/secrets/borgbackup/passphrase.age";
+        owner = "${config.var.username}";
+        group = "users";
+        mode = "0400";
+      };
+
       git-credentials = lib.mkIf config.var.git.useSecrets {
         file = "${inputs.self}/secrets/git-credentials.age";
         symlink = false; # copy file instead of use symlink

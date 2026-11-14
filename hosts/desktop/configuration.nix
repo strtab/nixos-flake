@@ -32,6 +32,7 @@ in
     office.enable = true;
     games.enable = true;
     vial.enable = true;
+    borgbackup.enable = true;
     hysteria = {
       useSecrets = true;
       enable = true;
