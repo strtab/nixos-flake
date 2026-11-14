@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 let
   open = pkgs.writeShellScriptBin "open" ''
     #/usr/bin/env sh
@@ -47,8 +47,7 @@ in
 
   environment.systemPackages = with pkgs; [
     ripgrep
-    neovim
-    ranger
+    pkgs-unstable.neovim
     tree
     open
     glib
