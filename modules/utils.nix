@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 let
   open = pkgs.writeShellScriptBin "open" ''
     #/usr/bin/env sh
@@ -11,6 +11,8 @@ let
   '';
 in
 {
+  hardware.enableRedistributableFirmware = true;
+
   programs = {
     nano.enable = false;
     dconf.enable = true;
@@ -67,8 +69,10 @@ in
 
     # fs/files
     smartmontools
+    btrfs-progs
     exfatprogs
     e2fsprogs
+    parted
     ntfs3g
     exfat
     lsof
