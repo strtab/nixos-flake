@@ -12,7 +12,7 @@ let
   '';
 
   maxTemp = pkgs.writeShellScript "max-temp-millic" ''
-    cpu=$(cat /sys/class/hwmon/hwmon0/temp1_input)
+    cpu=$(cat /sys/class/hwmon/hwmon1/temp1_input)
     gpu=$(${gpuTemp})
     [ "$cpu" -gt "$gpu" ] && echo "$cpu" || echo "$gpu"
   '';
@@ -28,21 +28,22 @@ in
   hardware.fancontrol = {
     enable = true;
     config = ''
-      DEVPATH=hwmon0=devices/platform/coretemp.0 hwmon1=devices/platform/it87.2608
-      DEVNAME=hwmon0=coretemp hwmon1=it8772
+      DEVPATH=hwmon1=devices/platform/coretemp.0 hwmon2=devices/platform/it87.2608
+      DEVNAME=hwmon1=coretemp hwmon2=it8772
 
-      FCTEMPS=hwmon1/pwm2=!${maxTemp} hwmon1/pwm3=!${maxTemp}
-      FCFANS=hwmon1/pwm2=hwmon1/fan2_input hwmon1/pwm3=hwmon1/fan3_input
+      FCTEMPS=hwmon2/pwm2=!${maxTemp} hwmon2/pwm3=!${maxTemp}
+      FCFANS=hwmon2/pwm2=hwmon2/fan2_input hwmon2/pwm3=hwmon2/fan3_input
 
-      MINTEMP=hwmon1/pwm2=35 hwmon1/pwm3=35
-      MAXTEMP=hwmon1/pwm2=65 hwmon1/pwm3=65
+      MINTEMP=hwmon2/pwm2=35 hwmon2/pwm3=35
+      MAXTEMP=hwmon2/pwm2=65 hwmon2/pwm3=65
 
       INTERVAL=5
 
-      MAXPWM=hwmon1/pwm2=220 hwmon1/pwm3=220
+      MAXPWM=hwmon2/pwm2=220 hwmon2/pwm3=220
 
-      MINSTART=hwmon1/pwm2=70 hwmon1/pwm3=70
-      MINSTOP=hwmon1/pwm2=60 hwmon1/pwm3=60
+      MINPWM=hwmon2/pwm2=60 hwmon2/pwm3=60
+      MINSTART=hwmon2/pwm2=70 hwmon2/pwm3=70
+      MINSTOP=hwmon2/pwm2=60 hwmon2/pwm3=60
     '';
   };
 }

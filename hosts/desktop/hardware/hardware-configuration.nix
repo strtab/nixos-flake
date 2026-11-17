@@ -4,25 +4,51 @@
   lib,
   ...
 }:
-
 {
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/45d1a8f4-f94d-4efc-9b8a-6d18a5e14c90";
-    fsType = "f2fs";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/1AAE-82ED";
-    fsType = "vfat";
+    device = "/dev/disk/by-uuid/b75edf87-d2e8-40f6-9128-ff5053bc1b71";
+    fsType = "btrfs";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "subvol=@"
+      "compress=zstd:1"
+      "noatime"
     ];
   };
-
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/b75edf87-d2e8-40f6-9128-ff5053bc1b71";
+    fsType = "btrfs";
+    options = [
+      "subvol=@log"
+      "compress=zstd:1"
+      "noatime"
+    ];
+    neededForBoot = true;
+  };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/b75edf87-d2e8-40f6-9128-ff5053bc1b71";
+    fsType = "btrfs";
+    options = [
+      "subvol=@nix"
+      "compress=zstd:1"
+      "noatime"
+    ];
+  };
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/2b9ea38c-974d-4774-ac21-b34aabf90ac1";
-    fsType = "f2fs";
+    device = "/dev/disk/by-uuid/b75edf87-d2e8-40f6-9128-ff5053bc1b71";
+    fsType = "btrfs";
+    options = [
+      "subvol=@home"
+      "compress=zstd:1"
+      "noatime"
+    ];
+  };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/FABA-A61A";
+    fsType = "vfat";
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
   };
 
   fileSystems."/mnt/sdb" = {
