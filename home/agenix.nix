@@ -1,5 +1,4 @@
 {
-  lib,
   inputs,
   config,
   ...
@@ -23,7 +22,8 @@
       isyncrc.file = "${inputs.self}/secrets/mail/isyncrc.age";
       notmuch.file = "${inputs.self}/secrets/mail/notmuch.age";
 
-      pi-auth.file = "${inputs.self}/secrets/pi-auth.age";
+      pi-auth.file = "${inputs.self}/secrets/pi/auth.age";
+      pi-keyrouter.file = "${inputs.self}/secrets/pi/keyrouter.age";
     };
   };
 }

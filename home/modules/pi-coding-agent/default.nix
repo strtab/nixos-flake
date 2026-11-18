@@ -17,12 +17,24 @@ let
       ./skills # local skills
     ];
   };
+
+  semsearchConfig = pkgs.writeText "semsearch.json" (
+    builtins.toJSON {
+      embedding = {
+        baseURL = "http://127.0.0.1:9932/v1";
+        apiKeyEnv = "SEMSEARCH_API_KEY";
+        model = "Qwen3-Embedding-0.6B";
+        dimensions = 1024;
+      };
+    }
+  );
 in
 {
   imports = [ inputs.pi-hm.homeModules.default ];
 
   home.packages = with pkgs; [
     html2text
+    python3
     ffmpeg
     ddgr
   ];
@@ -65,11 +77,14 @@ in
       defaultProvider = "llama-server=http://127.0.0.1:9931";
       defaultModel = "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive:Q4_K_P";
       packages = [
+        "git:github.com/NikolaiUgelvik/pi-semsearch"
         "git:github.com/strtab/pi-claude-code-ui"
         "npm:pi-prefix-cache-compaction"
         "npm:@jetserge/pi-clear-hotkey" # ctrl-l
         "npm:@juicesharp/rpiv-todo"
         "npm:pi-llama-cpp"
+        "npm:pi-keyrouter"
+        "npm:pi-knowledge"
         "npm:pi-guards"
       ];
     };
@@ -79,11 +94,18 @@ in
 
   home.activation.linkPiAuth = config.lib.dag.entryAfter [ "setXdgRuntimeDir" ] ''
     mkdir -p "${agentDir}"
+
     ln -sf "${config.age.secrets.pi-auth.path}" "${agentDir}/auth.json"
+    ln -sf "${config.age.secrets.pi-keyrouter.path}" "${agentDir}/keyrouter.json"
+
     chmod 600 "${agentDir}/auth.json" 2>/dev/null || true
+    chmod 600 "${agentDir}/keyrouter.json" 2>/dev/null || true
   '';
 
   home.sessionVariables = {
     PI_SKIP_VERSION_CHECK = 1;
+    PI_SEMSEARCH_CONFIG = "${semsearchConfig}";
+    PI_KNOWLEDGE_AUTO_INJECT = true; # retrieve context before every model call
+    PI_KNOWLEDGE_WATCH = true; # update directory KBs after file changes
   };
 }

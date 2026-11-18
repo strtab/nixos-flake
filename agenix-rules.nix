@@ -13,7 +13,8 @@ in
   "secrets/mail/aerc-accounts.age".publicKeys = systems ++ users;
   "secrets/mail/isyncrc.age".publicKeys = systems ++ users;
   "secrets/mail/notmuch.age".publicKeys = systems ++ users;
-  "secrets/pi-auth.age".publicKeys = systems ++ users;
+  "secrets/pi/auth.age".publicKeys = systems ++ users;
+  "secrets/pi/keyrouter.age".publicKeys = systems ++ users;
   "secrets/borgbackup/keyfile.age".publicKeys = systems ++ users;
   "secrets/borgbackup/passphrase.age".publicKeys = systems ++ users;
 }
