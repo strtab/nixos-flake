@@ -61,11 +61,14 @@ in
 
     # system
     uutils-coreutils-noprefix
+    linuxPackages.cpupower
+    dmidecode
+    powerstat
     usbutils
     pciutils
-    linuxPackages.cpupower
     hwinfo
     pstree
+    s-tui
 
     # fs/files
     smartmontools
