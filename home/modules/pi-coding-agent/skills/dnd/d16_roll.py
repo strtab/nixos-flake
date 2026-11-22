@@ -6,20 +6,20 @@ Usage examples:
     python3 d16_roll.py --mod 1 --dc 10 --adv
     python3 d16_roll.py --mod 0 --dc 14 --dis
     python3 d16_roll.py --mod 3 --opposed-mod 2 --label "Grapple vs raider"
-    python3 d16_roll.py --raw 3                    # three plain d16 rolls
-    python3 d16_roll.py --mod 2 --dc 12 --short    # outcome word only
+    python3 d16_roll.py --raw 3
+    python3 d16_roll.py --mod 2 --dc 12 --pretty   # bracketed line
     python3 d16_roll.py --mod 2 --dc 12 --json     # full JSON output
 
-Default output is one ready-to-paste line:
-    [d16: 11 +2 = 13 vs DC 12 -> success]
-    [d16 adv: 4,15 -> 15 +1 = 16 vs DC 10 -> strong_success]
-    [d16 opposed: 9 +3 = 12 vs 13 +2 = 15 -> opponent]
-    [d16 raw: 7 6 12]
-With --short, only the outcome is printed as a plain word:
+Default output is the outcome only, as a plain word:
     check   -> critical_success | strong_success | success | failure |
                bad_failure | critical_failure
     opposed -> actor | opponent | tie
     raw     -> space-separated numbers
+With --pretty, a ready-to-paste line with the numbers is printed:
+    [d16: 11 +2 = 13 vs DC 12 -> success]
+    [d16 adv: 4,15 -> 15 +1 = 16 vs DC 10 -> strong_success]
+    [d16 opposed: 9 +3 = 12 vs 13 +2 = 15 -> opponent]
+    [d16 raw: 7 6 12]
 With --json, one JSON object is printed instead.
 Randomness comes from the OS (SystemRandom), so results cannot be guessed
 or replayed.
@@ -166,8 +166,8 @@ def parse_args(argv):
     p.add_argument("--dis", action="store_true", help="disadvantage")
     p.add_argument("--raw", type=int, metavar="N", help="roll N plain d16")
     p.add_argument("--label", default="", help="short description of the roll")
-    p.add_argument("--short", action="store_true",
-                   help="print only the outcome word (no numbers)")
+    p.add_argument("--pretty", action="store_true",
+                   help="print a bracketed line with the numbers")
     p.add_argument("--json", action="store_true",
                    help="print the full result as JSON")
     args = p.parse_args(argv)
@@ -188,10 +188,10 @@ def main(argv):
         result = check(args)
     if args.json:
         print(json.dumps(result))
-    elif args.short:
-        print(short_output(result))
-    else:
+    elif args.pretty:
         print(line_output(result))
+    else:
+        print(short_output(result))
 
 
 if __name__ == "__main__":
