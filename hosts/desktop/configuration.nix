@@ -12,7 +12,17 @@ let
       cudaPackages = pkgs-unstable.cudaPackages_12;
     }).overrideAttrs
       (old: {
-        # Build kernels for GTX 1080 only (compute capability 6.1); the last flag wins
+        version = "master-${inputs.llama-cpp.shortRev}";
+        src = inputs.llama-cpp;
+        buildInputs = (old.buildInputs or [ ]) ++ [
+          pkgs-unstable.cudaPackages_12.cuda_nvml_dev
+        ];
+        doCheck = false;
+        nativeBuildInputs = builtins.filter (p: (p.name or "") != "npm-config-hook") old.nativeBuildInputs;
+        npmDeps = null;
+        preConfigure = ''
+          prependToVar cmakeFlags "-DLLAMA_BUILD_COMMIT:STRING=$(cat COMMIT)"
+        '';
         cmakeFlags = (old.cmakeFlags or [ ]) ++ [ "-DCMAKE_CUDA_ARCHITECTURES=61" ];
       });
 in
@@ -40,15 +50,37 @@ in
     llama-cpp = {
       enable = true;
       package = llama-cpp-pascal;
+      ui = false;
       models = {
         "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive:Q4_K_P" = {
           hf = "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive";
           file = "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q4_K_P.gguf";
           mmproj = "mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf";
           settings = {
-            n-cpu-moe = 40;
-            n-gpu-layers = 95;
-            ctx-size = "128000";
+            load-mode = "none";
+            no-mmproj-offload = true;
+            n-gpu-layers = 99;
+            ctx-size = 262000;
+            cpu-mask = "0xFE";
+            cpu-strict = 1;
+            n-cpu-moe = 37;
+            ctk = "q8_0";
+            ctv = "q8_0";
+            fa = "on";
+            ub = 1024;
+            b = 2048;
+            np = 1;
+            t = 7;
+          };
+        };
+        "embedding" = {
+          hf = "Qwen/Qwen3-Embedding-0.6B-GGUF:Q8_0";
+          settings = {
+            embedding = true;
+            pooling = "last";
+            sleep-idle-seconds = 30;
+            ubatch-size = 8192;
+            n-gpu-layers = 100;
           };
         };
       };
