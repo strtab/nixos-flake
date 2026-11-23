@@ -33,6 +33,9 @@
     pi-hm.url = "github:strtab/pi-hm";
     pi-hm.inputs.nixpkgs.follows = "nixpkgs";
 
+    llama-cpp.url = "github:ggml-org/llama.cpp/29b52d398b294509746ec0a3f28948a3107c0213";
+    llama-cpp.flake = false;
+
     # Kde Theme
     geist.url = "github:strtab/Plasma-Geist-visual-style";
     geist.flake = false;
