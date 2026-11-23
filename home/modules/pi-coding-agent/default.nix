@@ -11,7 +11,7 @@ let
   allSkills = pkgs.symlinkJoin {
     name = "pi-skills";
     paths = [
-      "${inputs.obsidian-skills}/skills"
+      "${inputs.obsidian-skills}/plugins/obsidian/skills"
       "${inputs.jakubkrehel-skills}/skills"
       "${inputs.ponytail-skills}/skills"
       ./skills # local skills
