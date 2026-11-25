@@ -2,9 +2,31 @@
   config,
   inputs,
   pkgs-unstable,
+  lib,
   ...
 }:
 let
+  noProxy = lib.concatStringsSep "," [
+    "localhost"
+    "127.0.0.1"
+    "192.168.1.1"
+    "homelab"
+    ".lan"
+    ".localdomain.com"
+    ".ptr.network"
+    ".ru"
+    "anilib.me"
+    "kodikplayer.com"
+    "video1.cdnlibs.org"
+    "www.gravatar.com"
+    "bybit.com"
+    "stationx.mo"
+    "drweb.com"
+    "translate.yandex.com"
+    "vk.com"
+    "userapi.com"
+    "nixos.wiki"
+  ];
   llama-cpp-pascal =
     (pkgs-unstable.llama-cpp.override {
       cudaSupport = true;
@@ -34,7 +56,8 @@ in
   ];
 
   environment.sessionVariables = {
-    no_proxy = "kodikplayer.com,www.gravatar.com,.ptr.network,192.168.1.1,localhost,127.0.0.1,localaddress,.localdomain.com,bybit.com,stationx.mo,drweb.com,lo,anilib.me,kodikplayer.com,homelab,anilib.me,.ru,video1.cdnlibs.org,translate.yandex.com,vk.com,userapi.com,aeza.ru,.lan,nixos.wiki";
+    no_proxy = noProxy;
+    NO_PROXY = noProxy;
   };
 
   modules = {
@@ -58,12 +81,12 @@ in
           mmproj = "mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf";
           settings = {
             load-mode = "none";
-            no-mmproj-offload = true;
+            no-mmproj = true;
             n-gpu-layers = 99;
             ctx-size = 262000;
             cpu-mask = "0xFE";
             cpu-strict = 1;
-            n-cpu-moe = 37;
+            n-cpu-moe = 38;
             ctk = "q8_0";
             ctv = "q8_0";
             fa = "on";
@@ -71,16 +94,6 @@ in
             b = 2048;
             np = 1;
             t = 7;
-          };
-        };
-        "embedding" = {
-          hf = "Qwen/Qwen3-Embedding-0.6B-GGUF:Q8_0";
-          settings = {
-            embedding = true;
-            pooling = "last";
-            sleep-idle-seconds = 30;
-            ubatch-size = 8192;
-            n-gpu-layers = 100;
           };
         };
       };
