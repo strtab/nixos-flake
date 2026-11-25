@@ -5,18 +5,8 @@
   ...
 }:
 {
-  # systemd.services.console-font-double = lib.mkIf config.modules.tty.doubledFont {
-  #   description = "Set doubled console font";
-  #   after = [ "systemd-vconsole-setup.service" ];
-  #   wantedBy = [ "multi-user.target" ];
-  #   serviceConfig = {
-  #     Type = "oneshot";
-  #     RemainAfterExit = true;
-  #     ExecStart = "${pkgs.kbd}/bin/setfont ${config.modules.tty.font} -d";
-  #   };
-  # };
   console = {
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-v16n.psf.gz";
     packages = [ pkgs.terminus_font ];
     colors = [
       "000000"
