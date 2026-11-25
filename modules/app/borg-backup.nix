@@ -54,7 +54,7 @@ in
       readWritePaths = [ "${home}/.ssh" ];
 
       encryption = {
-        mode = "keyfile-blake2"; 
+        mode = "keyfile-blake2";
         passCommand = "cat ${config.age.secrets.borg-passphrase.path}";
       };
 
