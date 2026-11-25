@@ -12,11 +12,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1795184859,
-        "narHash": "sha256-4lylUIx0t+rfqkeChz+BEiSld05eEbbTLY1cxo2b6P0=",
+        "lastModified": 1795626746,
+        "narHash": "sha256-iUZ+5i8O8E+euAepJDC0HZqrYCLaiX1QGOJrsOzCaek=",
         "owner": "strtab",
         "repo": "aether",
-        "rev": "71c5b0d87b0f0075ffaa9dab5ba26660c67c6cf5",
+        "rev": "d9786b46cdcca836b61cb3b5f1825f469407ba7d",
         "type": "github"
       },
       "original": {
@@ -83,11 +83,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1795184757,
-        "narHash": "sha256-UfSxU8soenhK3gFwuN/fjVs/LNs7eUQJH/PaZrPw8CE=",
+        "lastModified": 1795626675,
+        "narHash": "sha256-j0H0AGH4ji8mZUHxUonuSQeMz0XARobv2JkOrBaox/k=",
         "owner": "strtab",
         "repo": "aether",
-        "rev": "63a7c2b002ba72433f424018adbb1b640f5b0ece",
+        "rev": "34803bc4142c7ceb3296d89a4af80ea53cb0d875",
         "type": "github"
       },
       "original": {
@@ -131,7 +131,7 @@
     "hagezi_piracy": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-7IzJ5pH6MOFxv5/GPMoj9Zl/50PsS3wETvGvRP+iRPQ=",
+        "narHash": "sha256-sbgYFUb7cbWumy4mqbwBvcb30ESyk9sPkGo6Dec2keU=",
         "type": "file",
         "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/anti.piracy-onlydomains.txt"
       },
@@ -143,7 +143,7 @@
     "hagezi_pro": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-3ZRAFR2RbyjYst8MHXrfooqAblOhf3IuBerAau9wRy0=",
+        "narHash": "sha256-eO+5UmRv1sDNwyn8HyumYy+pl/Un0QgBC3PNa5CtEw8=",
         "type": "file",
         "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/pro.plus-onlydomains.txt"
       },
@@ -159,11 +159,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795294473,
-        "narHash": "sha256-R/nreI9LwJkrzGMn1Ty5o+OUKFdONAFuF0rUq9kv4v4=",
+        "lastModified": 1795607293,
+        "narHash": "sha256-a0Q3+z23BSIvsQaiz4fInmIbEuCEDgG+w0wh2hASu8g=",
         "owner": "amaanq",
         "repo": "helium-flake",
-        "rev": "a3f2a905050e19c50d367260d4f732a142e1b369",
+        "rev": "077f04d80e1ddd98ff86b0709d9916f86385d12f",
         "type": "github"
       },
       "original": {
@@ -731,11 +731,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1795258312,
-        "narHash": "sha256-IEuDsf80ubivfpidbRsIm30HVo7PZIdZt1stRsbaY4Y=",
+        "lastModified": 1795370043,
+        "narHash": "sha256-s/0jq8usZtLVOolYBwmyUmd3JsfAu7w3FU+a0dgMqSY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "94c3211b0ee8ba969a3f12eb4aff8ba0f72971dd",
+        "rev": "0dc498bfe49baeb18b0f9891e800b53bb2603193",
         "type": "github"
       },
       "original": {
@@ -748,11 +748,11 @@
     "obsidian-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1795194247,
-        "narHash": "sha256-L6qIfM2TKp+g3j0J2SxfWf5qeqahCe7+YcSOMPoePOs=",
+        "lastModified": 1795623591,
+        "narHash": "sha256-UZRRleRFYanLeZlrPjeFcpwDnK52CHsIP4d3E79tQzs=",
         "owner": "kepano",
         "repo": "obsidian-skills",
-        "rev": "b110b2f8e9eb1f287892f937050dfd40af862cbb",
+        "rev": "ba213967e94fcf0bff173d810f7a4465856b7eca",
         "type": "github"
       },
       "original": {
